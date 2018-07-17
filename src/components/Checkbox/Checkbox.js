@@ -8,7 +8,7 @@ export default class Checkbox extends Component {
           isMobile = ismobile !== undefined ? ismobile : window.isMobile !== undefined ? window.isMobile : ~window.location.pathname.indexOf('mobile') ? true : false
 
     return (
-        <label className={`Checkbox${baseClassName ? ` ${baseClassName}` : ''}${isMobile ? ' Radio--mobile' : ''}`}>
+        <label className={`Checkbox${baseClassName ? ` ${baseClassName}` : ''}${isMobile ? ' Checkbox--mobile' : ''}`}>
     	    <input type="checkbox" className="Checkbox__input" {...restProps} />
             <span className="Checkbox__text">{children}</span>
         </label>

@@ -17,7 +17,23 @@
 
     .Radio__text {
       font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
-      font-size: 14px;
+      font-size: 15px;
+      line-height: 20px;
+      padding-left: 33px;
+
+      &:before {
+        top: -1px;
+        width: 20px;
+        height: 20px;
+        border-width: 2px;
+      }
+
+      &:after {
+        top: 4px;
+        left: 5px;
+        width: 10px;
+        height: 10px;
+      }
     }
   }
 

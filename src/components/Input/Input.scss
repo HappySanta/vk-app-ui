@@ -59,10 +59,44 @@
 
   &--mobile {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     height: auto;
-    padding: 5px 4px;
-    border: 1px solid #c1c9d4;
-    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #CACED4;
+    border-radius: 8px;
+
+    &::-webkit-input-placeholder {
+      transition: none;
+      color: #909499;
+    }
+    &::-moz-placeholder {
+      transition: none;
+      color: #909499;
+    }
+    &:-ms-input-placeholder {
+      transition: none;
+      color: #909499;
+    }
+    &:-moz-placeholder {
+      transition: none;
+      color: #909499;
+    }
+
+    &:focus {
+      outline: none;
+
+      &::-webkit-input-placeholder {
+        color: transparent;
+      }
+      &::-moz-placeholder {
+        color: transparent;
+      }
+      &:-ms-input-placeholder {
+        color: transparent;
+      }
+      &:-moz-placeholder {
+        color: transparent;
+      }
+    }
   }
 }

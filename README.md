@@ -1,6 +1,7 @@
 # @happysanta/vk-app-ui
 
 Основные элементы для приложений сообществ VK. Можно прописывать любые атрибуты и вешать обработчики — они сохранятся.
+Наглядные примеры с кодом — [https://happysantaltd.github.io/vk-app-ui/styleguide/](https://happysantaltd.github.io/vk-app-ui/styleguide/).
 
 
 ## Установка

@@ -1,6 +1,6 @@
 {
-  "name": "vk-app-ui",
-  "version": "0.1.0",
+  "name": "@happysanta/vk-app-ui",
+  "version": "0.1.1",
   "main": "dist/vkappui.js",
   "scripts": {
     "start": "webpack --watch",
@@ -47,5 +47,7 @@
     "sass-loader": "^7.0.3",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8"
-  }
+  },
+  "description": "Основные элементы для приложений сообществ VK. Можно прописывать любые атрибуты и вешать обработчики — они сохранятся. Наглядные примеры с кодом — [https://happysantaltd.github.io/vk-app-ui/styleguide/](https://happysantaltd.github.io/vk-app-ui/styleguide/).",
+  "dependencies": {}
 }

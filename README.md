@@ -27,7 +27,7 @@ window.isMobile = true // тут условие которое ставит true
 ```javascript
 import { Button, Link, WaitDots } from "@happysanta/vk-app-ui"
 
-<Button></Button>
+<Button>Button</Button>
 ```
 
 

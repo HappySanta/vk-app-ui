@@ -37,21 +37,21 @@
     padding: 8px 16px; }
   .Button--default:hover:not(:disabled):not(.Button--mobile):not(.Button--loading) {
     background-color: #5b88bd; }
-  .Button--default:active:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+  .Button--default:active:not(:disabled):not(.Button--loading) {
     background-color: #4872a3; }
   .Button--secondary {
     color: #55677d;
     background-color: #e5ebf1; }
     .Button--secondary:hover:not(:disabled):not(.Button--mobile):not(.Button--loading) {
       background-color: #dfe6ed; }
-    .Button--secondary:active:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+    .Button--secondary:active:not(:disabled):not(.Button--loading) {
       background-color: #dae2ea; }
   .Button--transparent {
     color: #2a5885;
     background-color: transparent; }
     .Button--transparent:hover:not(:disabled):not(.Button--mobile):not(.Button--loading) {
       background-color: #e5ebf1; }
-    .Button--transparent:active:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+    .Button--transparent:active:not(:disabled):not(.Button--loading) {
       background-color: #e5ebf1; }
   .Button--loading {
     padding: 8px 16px 7px;

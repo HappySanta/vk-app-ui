@@ -1,0 +1,67 @@
+.Checkbox {
+  display: inline-block;
+  user-select: none;
+
+  &:hover:not(.Checkbox--mobile) {
+    .Checkbox__input {
+
+      &:not(:disabled) + .Checkbox__text {
+        &:before {
+          background-color: #F2F4F8;
+        }
+      }
+
+      &:checked:not(:disabled) + .Checkbox__text {
+        &:before {
+          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20width%3D%2215%22%20height%3D%2215%22%20fill%3D%22%235B88BD%22%20rx%3D%223%22%2F%3E%3Cpath%20stroke%3D%22%23FFF%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M4%207.5L6.5%2010%2011%204.5%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+        }
+      }
+    }
+  }
+
+  &--mobile {
+
+    .Checkbox__text {
+      font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
+      font-size: 14px;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + .Checkbox__text {
+      &:before {
+        border: none;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20width%3D%2215%22%20height%3D%2215%22%20fill%3D%22%235181B8%22%20rx%3D%223%22%2F%3E%3Cpath%20stroke%3D%22%23FFF%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M4%207.5L6.5%2010%2011%204.5%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat 0;;
+      }
+    }
+
+    &:disabled + .Checkbox__text {
+      opacity: .45;
+      cursor: default;
+    }
+  }
+
+  &__text {
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-size: 13px;
+    line-height: 19px;
+    cursor: pointer;
+    color: #000000;
+    
+    &:before {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-top: 2px;
+      margin-right: 8px;
+      vertical-align: top;
+      content: '';
+      border: 1px solid #C1C9D1;
+      border-radius: 3px;
+      background-color: #FFFFFF;
+      box-sizing: border-box;
+    }
+  }
+}

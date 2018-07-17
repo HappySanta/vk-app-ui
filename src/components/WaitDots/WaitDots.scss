@@ -1,0 +1,37 @@
+.WaitDots {
+  height: 12.5px;
+  line-height: 10.5px;
+  display: inline-block;
+  vertical-align: middle;
+
+  .dot {
+    transform: translateZ(0);
+    animation-duration: 750ms;
+    animation-iteration-count: infinite;
+    animation-name: dot-animation;
+    background: #FFF;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px;
+  }
+
+  .dot1 {
+    animation-delay: 0ms;
+  }
+  .dot2 {
+    animation-delay: 180ms;
+  }
+  .dot3 {
+    animation-delay: 360ms;
+  }
+
+  &--blue {
+    .dot {
+      background: #6287AE;
+    }
+  }
+}
+
+@keyframes dot-animation{0%{opacity:0.2}30%{opacity:1}to{opacity:0.2}}

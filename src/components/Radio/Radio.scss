@@ -1,0 +1,79 @@
+.Radio {
+  display: inline-block;
+  user-select: none;
+
+  &:hover:not(.Radio--mobile) {
+    .Radio__input {
+
+      &:not(:disabled) + .Radio__text {
+        &:before {
+          background-color: #F2F4F8;
+        }
+      }
+    }
+  }
+
+  &--mobile {
+
+    .Radio__text {
+      font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
+      font-size: 14px;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + .Radio__text {
+      &:before {
+        border-color: #5181B8;
+      }
+
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    &:disabled + .Radio__text {
+      opacity: .45;
+      cursor: default;
+    }
+  }
+
+  &__text {
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-size: 13px;
+    line-height: 19px;
+    position: relative;
+    padding-left: 23px;
+    cursor: pointer;
+    color: #000000;
+    
+    &:before {
+      position: absolute;
+      top: 1px;
+      left: 0;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      content: '';
+      border: 1px solid #C1C9D1;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+      box-sizing: border-box;
+    }
+
+    &:after {
+      position: absolute;
+      top: 5px;
+      left: 4px;
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      content: '';
+      opacity: 0;
+      border-radius: 50%;
+      background-color: #5181B8;
+    }
+  }
+}

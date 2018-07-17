@@ -1,0 +1,51 @@
+{
+  "name": "vk-app-ui",
+  "version": "0.1.0",
+  "main": "dist/vkappui.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HappySantaLtd/vk-app-ui.git"
+  },
+  "author": "happysanta",
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "plugins": [
+      "transform-object-rest-spread",
+      "transform-react-jsx",
+      "transform-class-properties"
+    ]
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HappySantaLtd/vk-app-ui/issues"
+  },
+  "homepage": "https://github.com/HappySantaLtd/vk-app-ui#readme",
+  "peerDependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.3",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.27.1",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.2",
+    "react-styleguidist": "^7.1.0",
+    "sass-loader": "^7.0.3",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
+  }
+}

@@ -1,0 +1,68 @@
+.Input {
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 13px;
+  height: 30px;
+  margin: 0;
+  padding: 5px 9px 7px;
+  outline: none;
+  appearance: none;
+  color: #000;
+  border: 1px solid #d3d9de;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+  box-sizing: border-box;
+  user-select: none;
+
+  &:disabled {
+    opacity: .45;
+  }
+
+  &::-webkit-input-placeholder {
+    transition: color 0.2s ease;
+    color: #828282;
+  }
+  &::-moz-placeholder {
+    transition: color 0.2s ease;
+    color: #828282;
+  }
+  &:-ms-input-placeholder {
+    transition: color 0.2s ease;
+    color: #828282;
+  }
+  &:-moz-placeholder {
+    transition: color 0.2s ease;
+    color: #828282;
+  }
+
+  &:focus:not(.Input--mobile) {
+    border-color: #c9d0d6;
+    outline: none;
+
+    &::-webkit-input-placeholder {
+      transition: color 0.2s ease;
+      color: #B8B9BB;
+    }
+    &::-moz-placeholder {
+      transition: color 0.2s ease;
+      color: #B8B9BB;
+    }
+    &:-ms-input-placeholder {
+      transition: color 0.2s ease;
+      color: #B8B9BB;
+    }
+    &:-moz-placeholder {
+      transition: color 0.2s ease;
+      color: #B8B9BB;
+    }
+  }
+
+  &--mobile {
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
+    font-size: 14px;
+    height: auto;
+    padding: 5px 4px;
+    border: 1px solid #c1c9d4;
+    border-radius: 4px;
+  }
+}

@@ -6,7 +6,7 @@ export default class Link extends Component {
   render() {
   	const { type, component, className: baseClassName, children, ismobile, ...restProps } = this.props,
           isMobile = ismobile !== undefined ? ismobile : window.isMobile !== undefined ? window.isMobile : ~window.location.pathname.indexOf('mobile') ? true : false,
-  				Component = this.props.component
+          Component = this.props.component
 
     return (
     	<Component className={`Link ${type ? `Link--${type}` : ''}${baseClassName ? ` ${baseClassName}` : ''}${isMobile ? ' Link--mobile' : ''}`} {...restProps}>

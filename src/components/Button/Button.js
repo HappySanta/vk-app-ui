@@ -11,7 +11,7 @@ export default class Button extends Component {
   render() {
   	let { type, component, className: baseClassName, children, ismobile, loading, fixedwidth, ...restProps } = this.props,
         isMobile = ismobile !== undefined ? ismobile : window.isMobile !== undefined ? window.isMobile : ~window.location.pathname.indexOf('mobile') ? true : false,
-				Component = this.props.component
+				Component = this.props.component ? this.props.component : this.props.href ? "a" : 'button'
 
     return (
     	<Component
@@ -36,6 +36,5 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  type: 'default',
-  component: 'button'
+  type: 'default'
 };

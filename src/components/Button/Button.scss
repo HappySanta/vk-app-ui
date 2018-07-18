@@ -45,6 +45,14 @@
     padding: 9px 14px;
     border-radius: 8px;
 
+    &.Button--default:active {
+      background-color: #4872a3;
+    }
+
+    &.secondary:active {
+      background-color: #dae2ea;
+    }
+
     &.Button--transparent {
       color: #306096;
 
@@ -54,6 +62,10 @@
       }
     }
 
+    &.Button--loading {
+      padding: 9px 16px;
+    }
+
   }
 }
 
@@ -61,12 +73,13 @@
   @include Button(#fff, #5181b8);
 
   &--default {
-    &:hover:not(:disabled):not(.Button--mobile):not(.Button--loading) {
-      background-color: #5b88bd;
-    }
-
-    &:active:not(:disabled):not(.Button--loading) {
-      background-color: #4872a3;
+    &:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+      &:hover {
+        background-color: #5b88bd;
+      }
+      &:active {
+        background-color: #4872a3;
+      }
     }
   }
 
@@ -74,12 +87,13 @@
     color: #55677d;
     background-color: #e5ebf1;
 
-    &:hover:not(:disabled):not(.Button--mobile):not(.Button--loading) {
-      background-color: #dfe6ed;
-    }
-
-    &:active:not(:disabled):not(.Button--loading) {
-      background-color: #dae2ea;
+    &:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+      &:hover {
+        background-color: #dfe6ed;
+      }
+      &:active {
+        background-color: #dae2ea;
+      }
     }
   }
 
@@ -87,12 +101,14 @@
     color: #2a5885;
     background-color: transparent;
 
-    &:hover:not(:disabled):not(.Button--mobile):not(.Button--loading) {
-      background-color: #e5ebf1;
-    }
+    &:not(:disabled):not(.Button--mobile):not(.Button--loading) {
 
-    &:active:not(:disabled):not(.Button--mobile):not(.Button--loading) {
-      background-color: #e5ebf1;
+      &:hover {
+        background-color: #e5ebf1;
+      }
+      &:active {
+        background-color: #e5ebf1;
+      }
     }
   }
 

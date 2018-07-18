@@ -1,42 +1,23 @@
-Все теги `<div>`, в которые обернуты компоненты, только для того, чтобы сделать пример более красивым.
+Тег `<div>`, в который обернуты компоненты, и подключенные стили только для того, чтобы сделать пример более красивым.
 
  ```jsx
-<div style={{padding: '10px', display: 'inline-block', minWidth: '150px'}}>
+require('../../css/example.scss');
+initialState = { isLoadingDefault: false, isLoadingSecondary: false, isLoadingTransparent: false };
+
+<div>
     <Button href="https://vk.com" target="_blank" ismobile={true}>Mobile Default</Button>
-</div>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '100px'}}>
     <Button href="https://vk.com" target="_blank">Default</Button>
-</div>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '60px'}}>
-    <Button href="https://vk.com" target="_blank" loading={true}>Default loading</Button>
-</div>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '150px'}}>
+    <Button onClick={() => setState({ isLoadingDefault: true })} loading={state.isLoadingDefault}>Default loading</Button>
     <Button disabled={true}>Default disabled</Button>
-</div>
-<br/>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '150px'}}>
+    <br/>
     <Button type="secondary" ismobile={true}>Mobile Secondary</Button>
-</div>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '100px'}}>
     <Button type="secondary">Secondary</Button>
-</div>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '60px'}}>
-    <Button type="secondary" fixedwidth={true} loading={true}>Secondary loading</Button>
-</div>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '150px'}}>
+    <Button type="secondary" fixedwidth={true} onClick={() => setState({ isLoadingSecondary: true })} loading={state.isLoadingSecondary}>Secondary loading fixed width</Button>
     <Button type="secondary" disabled={true}>Secondary disabled</Button>
-</div>
-<br/>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '150px'}}>
+    <br/>
     <Button type="transparent" ismobile={true}>Mobile Transparent</Button>
-</div>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '100px'}}>
     <Button type="transparent">Transparent</Button>
-</div>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '60px'}}>
-    <Button type="transparent" loading={true}>Transparent</Button>
-</div>
-<div style={{padding: '10px', display: 'inline-block', minWidth: '150px'}}>
+    <Button type="transparent" onClick={() => setState({ isLoadingTransparent: true })} loading={state.isLoadingTransparent}>Transparent loading</Button>
     <Button type="transparent" disabled={true}>Transparent disabled</Button>
 </div>
 ```

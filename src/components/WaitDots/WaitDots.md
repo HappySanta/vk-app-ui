@@ -1,12 +1,10 @@
-Все теги `<div>`, в которые обернуты компоненты, только для того, чтобы сделать пример более красивым.
+Тег `<div>`, в который обернуты компоненты, и подключенные стили только для того, чтобы сделать пример более красивым.
 
  ```jsx
+ require('../../css/example.scss');
+ 
  <div style={{backgroundColor: '#FFC0CB'}}>
-    <div style={{padding: '20px', display: 'inline-block'}}>
-        <WaitDots className="someClassName" color="blue"></WaitDots>
-    </div>
-    <div style={{padding: '20px', display: 'inline-block'}}>
-        <WaitDots></WaitDots>
-    </div>
+     <WaitDots className="someClassName" color="blue"></WaitDots>
+     <WaitDots></WaitDots>
  </div>
 ```

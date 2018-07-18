@@ -13,7 +13,7 @@ $ npm i @happysanta/vk-app-ui
 
 ## Настройка
 
-В начале основного файла проекта, например, в index.js, нужно подключить стили, чтобы не делать этого в каждом файле, где понадобится компонент.
+В начале основного файла проекта, например, в index.js нужно подключить стили, чтобы не делать этого в каждом файле, где понадобится компонент.
 Также в основном файле нужно задать глобальную переменную window.isMobile = true/false, чтобы компонент понимал, когда ему использовать стили для десктопа, а когда для мобильных устройств. Если эта переменная не выставлена, компонент будет смотреть, есть ли в locaton.path «/mobile/».
 
 ```javascript
@@ -44,13 +44,13 @@ import { Button, Link, WaitDots } from "@happysanta/vk-app-ui"
 
 ### Button
 
-| Prop       | Type      | Required  | Values                              |
-|:-----------|:----------|:----------|:------------------------------------|
-| type       | string    | no        | defalt, secondary, transparent      |
-| component  | string    | no        | любой тег (обычно a, button)        |
-| ismobile   | bool      | no        | стили для моб. версии               |
-| loading    | bool      | no        | true, чтобы показывался прелоадер   |
-| fixedwidth | bool      | no        | true, чтобы у кнопки была min-width |
+| Prop       | Type      | Required  | Values                                                |
+|:-----------|:----------|:----------|:------------------------------------------------------|
+| type       | string    | no        | defalt, secondary, transparent                        |
+| component  | string    | no        | любой существующий тег кроме input (обычно a, button) |
+| ismobile   | bool      | no        | стили для моб. версии                                 |
+| loading    | bool      | no        | true, чтобы показывался прелоадер                     |
+| fixedwidth | bool      | no        | true, чтобы у кнопки была min-width                   |
 
 Компонент кнопки.
 
@@ -87,11 +87,11 @@ import { Button, Link, WaitDots } from "@happysanta/vk-app-ui"
 
 ### Link
 
-| Prop       | Type      | Required  | Values                       |
-|:-----------|:----------|:----------|:-----------------------------|
-| type       | string    | no        | medium, bold                 |
-| component  | string    | no        | любой тег (обычно a, button) |
-| ismobile   | bool      | no        | стили для моб. версии        |
+| Prop       | Type      | Required  | Values                                                |
+|:-----------|:----------|:----------|:------------------------------------------------------|
+| type       | string    | no        | medium, bold                                          |
+| component  | string    | no        | любой существующий тег кроме input (обычно a, button) |
+| ismobile   | bool      | no        | стили для моб. версии                                 |
 
 
 Компонент ссылки.

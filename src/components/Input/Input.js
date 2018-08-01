@@ -1,19 +1,22 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import './Input.scss'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import {createClassName, isMobile} from "../../tools"
+import css from './Input.scss'
 
 export default class Input extends Component {
-  render() {
-  	const { className: baseClassName, ismobile, ...restProps } = this.props,
-          isMobile = ismobile !== undefined ? ismobile : window.isMobile !== undefined ? window.isMobile : ~window.location.pathname.indexOf('mobile') ? true : false
+	render() {
+		const {className: baseClassName, ...restProps} = this.props
 
-    return (
-    	<input className={`Input${baseClassName ? ` ${baseClassName}` : ''}${isMobile ? ' Input--mobile' : ''}`} {...restProps} />
-    )
-  }
-};
+		const className = createClassName({
+			[css["Input"]]: true,
+			[css['Input--mobile']]: isMobile(this.props),
+			[baseClassName]: baseClassName,
+		})
+		return <input className={className} {...restProps} />
+	}
+}
 
 Input.propTypes = {
-  className: PropTypes.string,
-  ismobile: PropTypes.bool
-};
+	className: PropTypes.string,
+	mobile: PropTypes.bool
+}

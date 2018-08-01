@@ -3,7 +3,15 @@
 Основные элементы для приложений сообществ VK. Можно прописывать любые атрибуты и вешать обработчики — они сохранятся.
 Наглядные примеры с кодом — [https://happysanta.github.io/vk-app-ui/styleguide/](https://happysanta.github.io/vk-app-ui/styleguide/).
 
+## Changelog
 
+#### 0.1.7
+
+- Рандомные названия классов в css чтобы небыло пересечений со старыми проектами
+- Во всех компонентах свойство ismobile переименнованно в mobile
+- Глобальная переменная window.isMobile переименнованна в window._hsMobileUI
+- Убран user-select:none для компонента Input
+ 
 ## Установка
 
 ```sh
@@ -19,7 +27,7 @@ $ npm i @happysanta/vk-app-ui
 ```javascript
 import '@happysanta/vk-app-ui/dist/vkappui.css'
 
-window.isMobile = true // тут условие которое ставит true/false в зависимости от устройства.
+window._hsMobileUI = true // тут условие которое ставит true/false в зависимости от устройства.
 ```
 
 В начале файла, в котором нужно использовать компонент.
@@ -30,104 +38,7 @@ import { Button, Link, WaitDots } from "@happysanta/vk-app-ui"
 <Button>Button</Button>
 ```
 
-
-## Компоненты
-
-* [Button](#button)
-* [Checkbox](#checkbox)
-* [Input](#input)
-* [Link](#link)
-* [Radio](#radio)
-* [WaitDots](#waitdots)
-
-
-
-### Button
-
-| Prop       | Type      | Required  | Values                                                |
-|:-----------|:----------|:----------|:------------------------------------------------------|
-| type       | string    | no        | defalt, secondary, transparent                        |
-| component  | string    | no        | любой существующий тег кроме input (обычно a, button) |
-| ismobile   | bool      | no        | стили для моб. версии                                 |
-| loading    | bool      | no        | true, чтобы показывался прелоадер                     |
-| fixedwidth | bool      | no        | true, чтобы у кнопки была min-width                   |
-
-Компонент кнопки.
-
-```javascript
-<Button type="default" component="button" className="anyClassNames">Здесь могут быть другие теги или текст</Button>
-```
-
-
-### Checkbox
-
-| Prop       | Type      | Required  | Values                       |
-|:-----------|:----------|:----------|:-----------------------------|
-| ismobile   | bool      | no        | стили для моб. версии        |
-
-Компонент чекбокса.
-
-```javascript
-<Checkbox className="anyClassNames">Checkbox</Checkbox>
-```
-
-
-### Input
-
-| Prop       | Type      | Required  | Values                       |
-|:-----------|:----------|:----------|:-----------------------------|
-| ismobile   | bool      | no        | стили для моб. версии        |
-
-Компонент поля ввода.
-
-```javascript
-<Input type="text" placeholder="Type something" className="anyClassNames"/>
-```
-
-
-### Link
-
-| Prop       | Type      | Required  | Values                                                |
-|:-----------|:----------|:----------|:------------------------------------------------------|
-| type       | string    | no        | medium, bold                                          |
-| component  | string    | no        | любой существующий тег кроме input (обычно a, button) |
-| ismobile   | bool      | no        | стили для моб. версии                                 |
-
-
-Компонент ссылки.
-
-
-```javascript
-<Link type="default" component="a" className="anyClassNames">Здесь могут быть другие теги или текст</Link>
-```
-
-
-### Radio
-
-| Prop       | Type      | Required  | Values                       |
-|:-----------|:----------|:----------|:-----------------------------|
-| ismobile   | bool      | no        | стили для моб. версии        |
-
-Компонент радиокнопки.
-
-```javascript
-<Radio className="anyClassNames">Radio</Radio>
-```
-
-
-### WaitDots
-
-| Prop       | Type      | Required  | Values                       |
-|:-----------|:----------|:----------|:-----------------------------|
-| color      | string    | no        | blue                         |
-
-Компонент загрузки.
-
-
-```javascript
-<WaitDots color="blue"></WaitDots>
-```
-
+Полная документация и примеры с кодом — [https://happysanta.github.io/vk-app-ui/styleguide/](https://happysanta.github.io/vk-app-ui/styleguide/).
 
 ## Как обновить пакет в npm
 

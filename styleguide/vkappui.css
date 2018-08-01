@@ -1,4 +1,52 @@
-.Button {
+.WaitDots__1MqZT {
+  height: 12.5px;
+  line-height: 10.5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.WaitDots__1MqZT .dot__1c85W {
+  transform: translateZ(0);
+  animation-duration: 750ms;
+  animation-iteration-count: infinite;
+  animation-name: dot-animation__1-jpn;
+  background: #FFF;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 2px;
+}
+
+.WaitDots__1MqZT .dot1__2J_hO {
+  animation-delay: 0ms;
+}
+
+.WaitDots__1MqZT .dot2__6vIvo {
+  animation-delay: 180ms;
+}
+
+.WaitDots__1MqZT .dot3__1QwAn {
+  animation-delay: 360ms;
+}
+
+.WaitDots--blue__2IvQp .dot__1c85W {
+  background: #6287AE;
+}
+
+@keyframes dot-animation__1-jpn {
+  0% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+
+.Button__27A_5 {
   font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 12.5px;
   font-weight: 400;
@@ -23,95 +71,90 @@
   background-color: #5181b8;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   user-select: none; }
-  .Button:hover {
+
+.Button__27A_5:hover {
     text-decoration: none; }
-  .Button:active:not(.Button--mobile) {
+
+.Button__27A_5:active:not(.Button--mobile__zvJbI) {
     padding-top: 8px;
     padding-bottom: 7px; }
-  .Button:disabled {
+
+.Button__27A_5:disabled {
     opacity: .5;
     cursor: default; }
-  .Button--mobile {
+
+.Button--mobile__zvJbI {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
     font-size: 14px;
     line-height: 16px;
     padding: 9px 14px;
     border-radius: 8px; }
-    .Button--mobile.Button--transparent {
+
+.Button--mobile__zvJbI.Button--default__3Xagt:active {
+  background-color: #4872a3;
+}
+
+.Button--mobile__zvJbI.secondary__26O0b:active {
+  background-color: #dae2ea;
+}
+
+.Button--mobile__zvJbI.Button--transparent__1AXJe {
       color: #306096; }
-      .Button--mobile.Button--transparent:active {
+
+.Button--mobile__zvJbI.Button--transparent__1AXJe:active {
         color: #4872A3;
         background-color: transparent; }
-  .Button--default:hover:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+
+.Button--mobile__zvJbI.Button--loading__2mJ-2 {
+  padding: 9px 16px;
+}
+
+.Button--default__3Xagt:not(:disabled):not(.Button--mobile__zvJbI):not(.Button--loading__2mJ-2):hover {
     background-color: #5b88bd; }
-  .Button--default:active:not(:disabled):not(.Button--loading) {
+
+.Button--default__3Xagt:not(:disabled):not(.Button--mobile__zvJbI):not(.Button--loading__2mJ-2):active {
     background-color: #4872a3; }
-  .Button--secondary {
+
+.Button--secondary__29JKy {
     color: #55677d;
     background-color: #e5ebf1; }
-    .Button--secondary:hover:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+
+.Button--secondary__29JKy:not(:disabled):not(.Button--mobile__zvJbI):not(.Button--loading__2mJ-2):hover {
       background-color: #dfe6ed; }
-    .Button--secondary:active:not(:disabled):not(.Button--loading) {
+
+.Button--secondary__29JKy:not(:disabled):not(.Button--mobile__zvJbI):not(.Button--loading__2mJ-2):active {
       background-color: #dae2ea; }
-  .Button--transparent {
+
+.Button--transparent__1AXJe {
     color: #2a5885;
     background-color: transparent; }
-    .Button--transparent:hover:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+
+.Button--transparent__1AXJe:not(:disabled):not(.Button--mobile__zvJbI):not(.Button--loading__2mJ-2):hover {
       background-color: #e5ebf1; }
-    .Button--transparent:active:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+
+.Button--transparent__1AXJe:not(:disabled):not(.Button--mobile__zvJbI):not(.Button--loading__2mJ-2):active {
       background-color: #e5ebf1; }
-  .Button--loading {
+
+.Button--loading__2mJ-2 {
     padding: 8px 16px 7px;
     pointer-events: none; }
 
-.WaitDots {
-  height: 12.5px;
-  line-height: 10.5px;
-  display: inline-block;
-  vertical-align: middle; }
-  .WaitDots .dot {
-    transform: translateZ(0);
-    animation-duration: 750ms;
-    animation-iteration-count: infinite;
-    animation-name: dot-animation;
-    background: #FFF;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 2px; }
-  .WaitDots .dot1 {
-    animation-delay: 0ms; }
-  .WaitDots .dot2 {
-    animation-delay: 180ms; }
-  .WaitDots .dot3 {
-    animation-delay: 360ms; }
-  .WaitDots--blue .dot {
-    background: #6287AE; }
-
-@keyframes dot-animation {
-  0% {
-    opacity: 0.2; }
-  30% {
-    opacity: 1; }
-  to {
-    opacity: 0.2; } }
-
-div .Button, div .Checkbox, div .Input, div .Link, div .Radio, div > .WaitDots {
-  margin: 20px; }
-
-.Checkbox {
+.Checkbox__XIBW0 {
   display: inline-block;
   user-select: none; }
-  .Checkbox:hover:not(.Checkbox--mobile) .Checkbox__input:not(:disabled) + .Checkbox__text:before {
+
+.Checkbox__XIBW0:hover:not(.Checkbox--mobile__3oHef) .Checkbox__input__1Peh4:not(:disabled) + .Checkbox__text__2_ftt:before {
     background-color: #F2F4F8; }
-  .Checkbox:hover:not(.Checkbox--mobile) .Checkbox__input:checked:not(:disabled) + .Checkbox__text:before {
+
+.Checkbox__XIBW0:hover:not(.Checkbox--mobile__3oHef) .Checkbox__input__1Peh4:checked:not(:disabled) + .Checkbox__text__2_ftt:before {
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20width%3D%2215%22%20height%3D%2215%22%20fill%3D%22%235B88BD%22%20rx%3D%223%22%2F%3E%3Cpath%20stroke%3D%22%23FFF%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M4%207.5L6.5%2010%2011%204.5%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
-  .Checkbox--mobile .Checkbox__text {
+
+.Checkbox--mobile__3oHef .Checkbox__text__2_ftt {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
     font-size: 15px;
     line-height: 20px; }
-    .Checkbox--mobile .Checkbox__text:before {
+
+.Checkbox--mobile__3oHef .Checkbox__text__2_ftt:before {
       width: 20px;
       height: 20px;
       margin-top: 0;
@@ -119,22 +162,27 @@ div .Button, div .Checkbox, div .Input, div .Link, div .Radio, div > .WaitDots {
       border: none;
       background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20fill%3D%22%23FFF%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2220%22%20height%3D%2220%22%20rx%3D%226%22/%3E%3Cpath%20d%3D%22M5.128%200h9.744c1.783%200%202.43.186%203.082.534.652.349%201.163.86%201.512%201.512.348.652.534%201.299.534%203.082v9.744c0%201.783-.186%202.43-.534%203.082a3.635%203.635%200%200%201-1.512%201.512c-.652.348-1.299.534-3.082.534H5.128c-1.783%200-2.43-.186-3.082-.534a3.635%203.635%200%200%201-1.512-1.512C.186%2017.302%200%2016.655%200%2014.872V5.128c0-1.783.186-2.43.534-3.082A3.635%203.635%200%200%201%202.046.534C2.698.186%203.345%200%205.128%200zm-.564%202c-.892%200-1.215.093-1.54.267a1.81%201.81%200%200%200-.757.756c-.174.326-.267.65-.267%201.54v10.873c0%20.892.093%201.215.267%201.54.174.327.43.583.756.757.326.174.65.267%201.54.267h10.873c.892%200%201.215-.093%201.54-.267a1.81%201.81%200%200%200%20.757-.756c.174-.326.267-.65.267-1.54V4.563c0-.892-.093-1.215-.267-1.54a1.817%201.817%200%200%200-.756-.757c-.326-.174-.65-.267-1.54-.267H4.563L4.564%202z%22%20fill%3D%22%23C4C8CC%22/%3E%3C/g%3E%3C/svg%3E") no-repeat 0;
       background-size: cover; }
-  .Checkbox__input {
+
+.Checkbox__input__1Peh4 {
     display: none; }
-    .Checkbox__input:checked + .Checkbox__text:before {
+
+.Checkbox__input__1Peh4:checked + .Checkbox__text__2_ftt:before {
       border: none;
       background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20width%3D%2215%22%20height%3D%2215%22%20fill%3D%22%235181B8%22%20rx%3D%223%22%2F%3E%3Cpath%20stroke%3D%22%23FFF%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M4%207.5L6.5%2010%2011%204.5%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat 0;
       background-size: cover; }
-    .Checkbox__input:disabled + .Checkbox__text {
+
+.Checkbox__input__1Peh4:disabled + .Checkbox__text__2_ftt {
       opacity: .45;
       cursor: default; }
-  .Checkbox__text {
+
+.Checkbox__text__2_ftt {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     font-size: 13px;
     line-height: 19px;
     cursor: pointer;
     color: #000000; }
-    .Checkbox__text:before {
+
+.Checkbox__text__2_ftt:before {
       display: inline-block;
       width: 15px;
       height: 15px;
@@ -147,7 +195,7 @@ div .Button, div .Checkbox, div .Input, div .Link, div .Radio, div > .WaitDots {
       background-color: #FFFFFF;
       box-sizing: border-box; }
 
-.Input {
+.Input__2WBTq {
   font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 13px;
   height: 30px;
@@ -161,67 +209,87 @@ div .Button, div .Checkbox, div .Input, div .Link, div .Radio, div > .WaitDots {
   background: #fff;
   box-shadow: none;
   box-sizing: border-box;
-  user-select: none; }
-  .Input:disabled {
+}
+
+.Input__2WBTq:disabled {
     opacity: .45; }
-  .Input::-webkit-input-placeholder {
+
+.Input__2WBTq::-webkit-input-placeholder {
     transition: color 0.2s ease;
     color: #828282; }
-  .Input::-moz-placeholder {
+
+.Input__2WBTq::-moz-placeholder {
     transition: color 0.2s ease;
     color: #828282; }
-  .Input:-ms-input-placeholder {
+
+.Input__2WBTq:-ms-input-placeholder {
     transition: color 0.2s ease;
     color: #828282; }
-  .Input:-moz-placeholder {
+
+.Input__2WBTq:-moz-placeholder {
     transition: color 0.2s ease;
     color: #828282; }
-  .Input:focus:not(.Input--mobile) {
+
+.Input__2WBTq:focus:not(.Input--mobile__1d2SG) {
     border-color: #c9d0d6;
     outline: none; }
-    .Input:focus:not(.Input--mobile)::-webkit-input-placeholder {
+
+.Input__2WBTq:focus:not(.Input--mobile__1d2SG)::-webkit-input-placeholder {
       transition: color 0.2s ease;
       color: #B8B9BB; }
-    .Input:focus:not(.Input--mobile)::-moz-placeholder {
+
+.Input__2WBTq:focus:not(.Input--mobile__1d2SG)::-moz-placeholder {
       transition: color 0.2s ease;
       color: #B8B9BB; }
-    .Input:focus:not(.Input--mobile):-ms-input-placeholder {
+
+.Input__2WBTq:focus:not(.Input--mobile__1d2SG):-ms-input-placeholder {
       transition: color 0.2s ease;
       color: #B8B9BB; }
-    .Input:focus:not(.Input--mobile):-moz-placeholder {
+
+.Input__2WBTq:focus:not(.Input--mobile__1d2SG):-moz-placeholder {
       transition: color 0.2s ease;
       color: #B8B9BB; }
-  .Input--mobile {
+
+.Input--mobile__1d2SG {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
     font-size: 15px;
     height: auto;
     padding: 10px;
     border: 1px solid #CACED4;
     border-radius: 8px; }
-    .Input--mobile::-webkit-input-placeholder {
+
+.Input--mobile__1d2SG::-webkit-input-placeholder {
       transition: none;
       color: #909499; }
-    .Input--mobile::-moz-placeholder {
+
+.Input--mobile__1d2SG::-moz-placeholder {
       transition: none;
       color: #909499; }
-    .Input--mobile:-ms-input-placeholder {
+
+.Input--mobile__1d2SG:-ms-input-placeholder {
       transition: none;
       color: #909499; }
-    .Input--mobile:-moz-placeholder {
+
+.Input--mobile__1d2SG:-moz-placeholder {
       transition: none;
       color: #909499; }
-    .Input--mobile:focus {
+
+.Input--mobile__1d2SG:focus {
       outline: none; }
-      .Input--mobile:focus::-webkit-input-placeholder {
-        color: transparent; }
-      .Input--mobile:focus::-moz-placeholder {
-        color: transparent; }
-      .Input--mobile:focus:-ms-input-placeholder {
-        color: transparent; }
-      .Input--mobile:focus:-moz-placeholder {
+
+.Input--mobile__1d2SG:focus::-webkit-input-placeholder {
         color: transparent; }
 
-.Link {
+.Input--mobile__1d2SG:focus::-moz-placeholder {
+        color: transparent; }
+
+.Input--mobile__1d2SG:focus:-ms-input-placeholder {
+        color: transparent; }
+
+.Input--mobile__1d2SG:focus:-moz-placeholder {
+        color: transparent; }
+
+.Link__LmySN {
   font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -242,48 +310,62 @@ div .Button, div .Checkbox, div .Input, div .Link, div .Radio, div > .WaitDots {
   box-sizing: border-box;
   background: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-  .Link:hover:not(:disabled):not(.Link--mobile) {
+
+.Link__LmySN:hover:not(:disabled):not(.Link--mobile__1mpkn) {
     text-decoration: underline; }
-  .Link:disabled {
+
+.Link__LmySN:disabled {
     cursor: default; }
-  .Link--medium {
+
+.Link--medium__nr-Jx {
     font-weight: 500; }
-  .Link--bold {
+
+.Link--bold__ouM7D {
     font-weight: 600; }
-  .Link--mobile {
+
+.Link--mobile__1mpkn {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
     font-size: 14px; }
 
-.Radio {
+.Radio__1q743 {
   display: inline-block;
   user-select: none; }
-  .Radio:hover:not(.Radio--mobile) .Radio__input:not(:disabled) + .Radio__text:before {
+
+.Radio__1q743:hover:not(.Radio--mobile__1XHb9) .Radio__input__3pndl:not(:disabled) + .Radio__text__32mDr:before {
     background-color: #F2F4F8; }
-  .Radio--mobile .Radio__text {
+
+.Radio--mobile__1XHb9 .Radio__text__32mDr {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
     font-size: 15px;
     line-height: 20px;
     padding-left: 33px; }
-    .Radio--mobile .Radio__text:before {
+
+.Radio--mobile__1XHb9 .Radio__text__32mDr:before {
       top: -1px;
       width: 20px;
       height: 20px;
       border-width: 2px; }
-    .Radio--mobile .Radio__text:after {
+
+.Radio--mobile__1XHb9 .Radio__text__32mDr:after {
       top: 4px;
       left: 5px;
       width: 10px;
       height: 10px; }
-  .Radio__input {
+
+.Radio__input__3pndl {
     display: none; }
-    .Radio__input:checked + .Radio__text:before {
+
+.Radio__input__3pndl:checked + .Radio__text__32mDr:before {
       border-color: #5181B8; }
-    .Radio__input:checked + .Radio__text:after {
+
+.Radio__input__3pndl:checked + .Radio__text__32mDr:after {
       opacity: 1; }
-    .Radio__input:disabled + .Radio__text {
+
+.Radio__input__3pndl:disabled + .Radio__text__32mDr {
       opacity: .45;
       cursor: default; }
-  .Radio__text {
+
+.Radio__text__32mDr {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     font-size: 13px;
     line-height: 19px;
@@ -291,7 +373,8 @@ div .Button, div .Checkbox, div .Input, div .Link, div .Radio, div > .WaitDots {
     padding-left: 23px;
     cursor: pointer;
     color: #000000; }
-    .Radio__text:before {
+
+.Radio__text__32mDr:before {
       position: absolute;
       top: 1px;
       left: 0;
@@ -303,7 +386,8 @@ div .Button, div .Checkbox, div .Input, div .Link, div .Radio, div > .WaitDots {
       border-radius: 50%;
       background-color: #FFFFFF;
       box-sizing: border-box; }
-    .Radio__text:after {
+
+.Radio__text__32mDr:after {
       position: absolute;
       top: 5px;
       left: 4px;

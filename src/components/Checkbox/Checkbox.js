@@ -1,22 +1,31 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import './Checkbox.scss'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import css from './Checkbox.scss'
+import {createClassName, isMobile} from "../../tools"
 
 export default class Checkbox extends Component {
-  render() {
-  	const { className: baseClassName, children, ismobile, ...restProps } = this.props,
-          isMobile = ismobile !== undefined ? ismobile : window.isMobile !== undefined ? window.isMobile : ~window.location.pathname.indexOf('mobile') ? true : false
+	render() {
+		const {className: baseClassName, children, ...restProps} = this.props
 
-    return (
-        <label className={`Checkbox${baseClassName ? ` ${baseClassName}` : ''}${isMobile ? ' Checkbox--mobile' : ''}`}>
-    	    <input type="checkbox" className="Checkbox__input" {...restProps} />
-            <span className="Checkbox__text">{children}</span>
-        </label>
-    )
-  }
-};
+		const className = createClassName({
+			[css['Checkbox']]: true,
+			[baseClassName ? ` ${baseClassName}` : '']: true,
+			[css['Checkbox--mobile']]: isMobile(this.props)
+		})
+
+		const rp = {...restProps}
+		delete rp.className
+
+		return <label className={className}>
+			<input type="checkbox" className={css["Checkbox__input"]} {...rp} />
+			{children ? <span className={css["Checkbox__text"]}>{children}</span> : null}
+		</label>
+	}
+}
 
 Checkbox.propTypes = {
-  className: PropTypes.string,
-  ismobile: PropTypes.bool
-};
+	checked: PropTypes.bool,
+	onChange: PropTypes.func,
+	className: PropTypes.string,
+	mobile: PropTypes.bool
+}

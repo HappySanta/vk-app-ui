@@ -1,22 +1,26 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import './Radio.scss'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import {createClassName, isMobile} from "../../tools"
+import css from './Radio.scss'
 
 export default class Radio extends Component {
-  render() {
-  	const { className: baseClassName, children, ismobile, ...restProps } = this.props,
-          isMobile = ismobile !== undefined ? ismobile : window.isMobile !== undefined ? window.isMobile : ~window.location.pathname.indexOf('mobile') ? true : false
+	render() {
+		const {className: baseClassName, children, ...restProps} = this.props
 
-    return (
-        <label className={`Radio${baseClassName ? ` ${baseClassName}` : ''}${isMobile ? ' Radio--mobile' : ''}`}>
-    	    <input type="radio" className="Radio__input" {...restProps} />
-            <span className="Radio__text">{children}</span>
-        </label>
-    )
-  }
-};
+		const className = createClassName({
+			[css['Radio']]: true,
+			[baseClassName]: baseClassName,
+			[css['Radio--mobile']]: isMobile(this.props)
+		})
+
+		return <label className={className}>
+			<input type="radio" className={css["Radio__input"]} {...restProps} />
+			<span className={css["Radio__text"]}>{children}</span>
+		</label>
+	}
+}
 
 Radio.propTypes = {
-  className: PropTypes.string,
-  ismobile: PropTypes.bool
-};
+	className: PropTypes.string,
+	mobile: PropTypes.bool
+}

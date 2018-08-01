@@ -1,22 +1,28 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types';
-import './WaitDots.scss'
+import PropTypes from 'prop-types'
+import {createClassName} from "../../tools"
+import css from './WaitDots.scss'
 
 export default class WaitDots extends Component {
-  render() {
-    let { color, className: baseClassName } = this.props
-    
-    return (
-      <span className={`WaitDots${color === 'blue' ? ' WaitDots--blue' : ''}${baseClassName ? ` ${baseClassName}` : ''}`}>
-        <span className="dot dot1" />
-        <span className="dot dot2" />
-        <span className="dot dot3" />
+	render() {
+		let {color, className: baseClassName} = this.props
+
+		const className = createClassName({
+			[css['WaitDots']]: true,
+			[css['WaitDots--blue']]: color === 'blue',
+			[baseClassName]: baseClassName
+		})
+
+		return <span className={className}>
+        <span className={createClassName({[css['dot']]: 1, [css['dot1']]: 1})}/>
+        <span className={createClassName({[css['dot']]: 1, [css['dot2']]: 1})}/>
+        <span className={createClassName({[css['dot']]: 1, [css['dot3']]: 1})}/>
       </span>
-    )
-  }
+
+	}
 }
 
 WaitDots.propTypes = {
-  color: PropTypes.oneOf(['blue', 'white', '']),
-  className: PropTypes.string
-};
+	color: PropTypes.oneOf(['blue', 'white', '']),
+	className: PropTypes.string
+}

@@ -1,11 +1,18 @@
-Тег `<div>`, в который обернуты компоненты, и подключенные стили только для того, чтобы сделать пример более красивым.
-
  ```jsx
-require('../../css/example.scss');
-
+initialState = {lock:true};
 <div>
-    <Checkbox ismobile={true}>Mobile Checkbox</Checkbox>
+    <Checkbox mobile={true}>Mobile Checkbox</Checkbox>
+    <br/>
     <Checkbox>Desktop Checkbox</Checkbox>
+    <br/>
     <Checkbox disabled={true}>Desktop Checkbox disabled</Checkbox>
+    <br/>
+    <br/>
+    <Checkbox checked={true}>Always checked</Checkbox>
+    <br/>
+    <br/>
+    <Checkbox onChange={ () => setState({lock:!state.lock}) } checked={state.lock}>One</Checkbox>
+    <br/>
+    <Checkbox onChange={ () => setState({lock:!state.lock}) } checked={!state.lock}>Two</Checkbox>
 </div>
 ```

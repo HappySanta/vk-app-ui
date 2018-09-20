@@ -2,47 +2,47 @@
   height: 12.5px;
   line-height: 10.5px;
   display: inline-block;
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 .WaitDots__1MqZT .dot__1c85W {
-  transform: translateZ(0);
-  animation-duration: 750ms;
-  animation-iteration-count: infinite;
-  animation-name: dot-animation__1-jpn;
-  background: #FFF;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 2px;
+    transform: translateZ(0);
+    animation-duration: 750ms;
+    animation-iteration-count: infinite;
+    animation-name: dot-animation__1-jpn;
+    background: #FFF;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px;
 }
 
 .WaitDots__1MqZT .dot1__2J_hO {
-  animation-delay: 0ms;
+    animation-delay: 0ms;
 }
 
 .WaitDots__1MqZT .dot2__6vIvo {
-  animation-delay: 180ms;
+    animation-delay: 180ms;
 }
 
 .WaitDots__1MqZT .dot3__1QwAn {
-  animation-delay: 360ms;
+    animation-delay: 360ms;
 }
 
 .WaitDots--blue__2IvQp .dot__1c85W {
-  background: #6287AE;
+    background: #6287AE;
 }
 
 @keyframes dot-animation__1-jpn {
   0% {
-    opacity: 0.2;
+      opacity: 0.2;
   }
   30% {
-    opacity: 1;
+      opacity: 1;
   }
   to {
-    opacity: 0.2;
+      opacity: 0.2;
   }
 }
 
@@ -91,11 +91,11 @@
     border-radius: 8px; }
 
 .Button--mobile__zvJbI.Button--default__3Xagt:active {
-  background-color: #4872a3;
+    background-color: #4872a3;
 }
 
 .Button--mobile__zvJbI.secondary__26O0b:active {
-  background-color: #dae2ea;
+    background-color: #dae2ea;
 }
 
 .Button--mobile__zvJbI.Button--transparent__1AXJe {
@@ -106,7 +106,7 @@
         background-color: transparent; }
 
 .Button--mobile__zvJbI.Button--loading__2mJ-2 {
-  padding: 9px 16px;
+    padding: 9px 16px;
 }
 
 .Button--default__3Xagt:not(:disabled):not(.Button--mobile__zvJbI):not(.Button--loading__2mJ-2):hover {
@@ -208,7 +208,7 @@
   border-radius: 2px;
   background: #fff;
   box-shadow: none;
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .Input__2WBTq:disabled {

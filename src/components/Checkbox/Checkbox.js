@@ -18,7 +18,7 @@ export default class Checkbox extends Component {
 
 		return <label className={className}>
 			<input type="checkbox" className={css["Checkbox__input"]} {...rp} />
-			{children ? <span className={css["Checkbox__text"]}>{children}</span> : null}
+			<span className={css["Checkbox__text"]}>{children}</span>
 		</label>
 	}
 }
@@ -28,4 +28,8 @@ Checkbox.propTypes = {
 	onChange: PropTypes.func,
 	className: PropTypes.string,
 	mobile: PropTypes.bool
+}
+
+Checkbox.defaultProps = {
+	onChange: () => {}
 }

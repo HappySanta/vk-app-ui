@@ -1,24 +1,24 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {createClassName, isMobile} from "../../tools"
-import css from './Input.scss'
+import css from './Textarea.scss'
 
-class Input extends Component {
+class Textarea extends Component {
 	render() {
 		const {className: baseClassName, ...restProps} = this.props
 
 		const className = createClassName({
-			[css["Input"]]: true,
-			[css['Input--mobile']]: isMobile(this.props),
+			[css["Textarea"]]: true,
+			[css['Textarea--mobile']]: isMobile(this.props),
 			[baseClassName]: baseClassName,
 		})
-		return <input className={className} {...restProps} />
+		return <textarea className={className} {...restProps} />
 	}
 }
 
-Input.propTypes = {
+Textarea.propTypes = {
 	className: PropTypes.string,
 	mobile: PropTypes.bool
 }
 
-module.exports = Input
+module.exports = Textarea

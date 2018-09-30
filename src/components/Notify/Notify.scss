@@ -1,0 +1,29 @@
+.Notify {
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 13px;
+  line-height: 18px;
+  color: #000;
+
+  strong {
+    font-weight: bold;
+  }
+
+  &--info {
+    background-color: #F5F7FA;
+    border-color: #BCC8D6;
+  }
+
+  &--error {
+    background-color: #FFEFE9;
+    border-color: #F2AB99;
+  }
+
+  &--success {
+    background-color: #EFFAED;
+    border-color: #AFD4A9;
+  }
+}

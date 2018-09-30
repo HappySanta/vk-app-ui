@@ -75,5 +75,13 @@
       background-color: #FFFFFF;
       box-sizing: border-box;
     }
+
+    &:empty {
+      &:before {
+        margin-right: 0;
+        margin-top: 0;
+        display: block;
+      }
+    }
   }
 }

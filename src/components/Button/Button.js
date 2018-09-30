@@ -4,7 +4,7 @@ import WaitDots from "../WaitDots/WaitDots"
 import css from './Button.scss'
 import {createClassName, isMobile} from "../../tools"
 
-export default class Button extends Component {
+class Button extends Component {
 
 	minWidth = null
 	node = null
@@ -92,3 +92,5 @@ Button.defaultProps = {
 	type: 'default',
 	fixedWidth: true
 }
+
+module.exports = Button

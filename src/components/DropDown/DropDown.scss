@@ -1,3 +1,113 @@
 .DropDown {
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 13px;
+  box-sizing: border-box;
+  box-shadow: none;
+  background: #fff;
+  border-radius: 2px;
+  color: #000;
+  outline: none;
+  appearance: none;
+  margin: 0;
+  padding: 4px 4px 0 4px;
+  display: inline-block;
+  min-width: 300px;
+  position: relative;
+  border: 1px solid #d3d9de;
 
+  input {
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-size: 13px;
+    line-height: 22px;
+    height: 22px;
+    margin: 0 0 4px 0;
+    padding: 0 0 0 3px;
+    outline: none;
+    appearance: none;
+    color: #000;
+    border: none;
+    background: #fff;
+    box-shadow: none;
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 120px;
+    vertical-align: middle;
+
+    &::-webkit-input-placeholder {
+      transition: color 0.2s ease;
+      color: #828282;
+    }
+    &::-moz-placeholder {
+      transition: color 0.2s ease;
+      color: #828282;
+    }
+    &:-ms-input-placeholder {
+      transition: color 0.2s ease;
+      color: #828282;
+    }
+    &:-moz-placeholder {
+      transition: color 0.2s ease;
+      color: #828282;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: 100%;
+    z-index: 1000;
+    background: #FFF;
+    border-radius: 2px;
+    border: 1px solid #d3d9de;
+    max-height: 450px;
+    overflow: auto;
+  }
+
+  &__item {
+    max-width: 100%;
+    word-break: break-word;
+    padding: 10px 15px;
+    cursor: pointer;
+
+    &:hover,&--active {
+      background-color: #d3d9de;
+    }
+  }
+
+  &__selected-item {
+    background-color: #E5EBF1;
+    border-radius: 2px;
+    display: inline-block;
+    color: #55677D;
+    font-size: 13px;
+    line-height: 15px;
+    padding-left: 8px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    padding-right: 25px;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-bottom: 4px;
+  }
+
+  &__remove {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -11px;
+    vertical-align: middle;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    outline: 0;
+    border:none;
+    appearance: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNLTQtNC41aDE5djE5SC00eiIvPjxwYXRoIGQ9Ik0xLjU0MiA4Ljk1OGw3LjkxNi03LjkxNk05LjQ1OCA4Ljk1OEwxLjU0MiAxLjA0MiIgc3Ryb2tlPSIjOTJBMEIxIiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9nPjwvc3ZnPg==');
+  }
 }

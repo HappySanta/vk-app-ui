@@ -16,6 +16,9 @@
   text-align: center;
   text-decoration: none;
   color: $color;
+  &:visited {
+    color: $color;
+  }
   border: 0;
   border-radius: 4px;
   box-sizing: border-box;

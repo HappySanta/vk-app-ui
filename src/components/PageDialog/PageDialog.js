@@ -48,6 +48,9 @@ export default class PageDialog extends Component {
 				this.bgNode.style.paddingTop = offset + 'px'
 			} else {
 				this.bgNode.style.paddingTop = ''
+				if (this.props.afterResolveHeight) {
+					this.props.afterResolveHeight(windowHeight + 10)
+				}
 			}
 		}
 	}

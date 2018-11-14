@@ -53,11 +53,13 @@ class Button extends Component {
 			}
 		}
 
+		const rp = {...restProps}
+		delete rp.mobile
 		return (
 			<Component
 				ref={this.catchRef}
 				className={className}
-				{...restProps}
+				{...rp}
 			>
 				{loading ? <WaitDots color={type === 'secondary' || type === 'transparent' ? 'blue' : ''}/> : children}
 			</Component>

@@ -33,12 +33,10 @@ export default class DropDown extends Component {
 			this.isItemMouseDown = false
 			return
 		}
-		console.log("BLUR")
 		this.setState({dropDown: false})
 	}
 
-	onFocus = e => {
-		console.log("FOCUS")
+	onFocus = () => {
 		this.justFocused = true
 		this.setState({dropDown: true})
 	}
@@ -52,27 +50,35 @@ export default class DropDown extends Component {
 			this.isRemoveClick = false
 			return
 		}
-		console.log("onComponentClick")
-		if (document.activeElement !== this.inputNode && this.inputNode) {
-			this.inputNode.focus()
+
+		if (this.inputNode) {
+			if (document.activeElement !== this.inputNode) {
+				this.inputNode.focus()
+			}
+		} else {
+			this.onFocus()
 		}
 	}
 
 	onItemClick = (e, item) => {
 		this.isItemClick = true
-		console.log("ON ITEM_CLICK ")
 		this.onSelectItem(item)
 		this.setState({dropDown: false, inputValue: ""})
 	}
 
 	onItemMouseDown = e => {
-		console.log('onItemMouseDown')
 		this.isItemMouseDown = true
 	}
 
 	onSelectItem(item) {
-		if (this.props.selected.indexOf(item) !== -1) {
-			return
+		if (this.props.single) {
+			if (this.props.selected === item) {
+				return
+			}
+		} else {
+			if (this.props.selected.indexOf(item) !== -1) {
+				return
+			}
 		}
 		this.props.onSelect(item)
 	}
@@ -130,8 +136,26 @@ export default class DropDown extends Component {
 		</div>
 	}
 
+	renderSingleItem(item) {
+		return <div className={css["DropDown__selected-item"] + ' ' + css['DropDown__selected-item--single']}>
+			{this.itemText(item)}
+		</div>
+	}
+
 	selectedItems() {
-		return this.props.selected.map(this.renderSelectedItem)
+		if (this.props.single) {
+			if (this.props.selected) {
+				return this.renderSingleItem(this.props.selected)
+			} else {
+				return null
+			}
+		} else {
+			return this.props.selected.map(this.renderSelectedItem)
+		}
+	}
+
+	isEmpty() {
+		return !this.props.selected || !this.props.selected.length
 	}
 
 	render() {
@@ -139,18 +163,22 @@ export default class DropDown extends Component {
 
 		const className = createClassName({
 			[css["DropDown"]]: true,
+			[css["DropDown--empty"]]: this.isEmpty(),
 			[baseClassName]: baseClassName,
 		})
 
+		const renderInput = this.isEmpty() || !(this.props.single)
+
 		return <div onClick={this.onComponentClick} className={className}>
+			<div className={css['DropDown__icon']}/>
 			{this.selectedItems()}
-			<input type="text"
-				   placeholder={this.props.placeholder}
-				   onChange={this.onChangeInputValue}
-				   onFocus={this.onFocus}
-				   onBlur={this.onBlur}
-				   ref={this.catchInputNode}
-				   value={this.state.inputValue}/>
+			{renderInput && <input type="text"
+								   placeholder={this.isEmpty() ? this.props.placeholder : ""}
+								   onChange={this.onChangeInputValue}
+								   onFocus={this.onFocus}
+								   onBlur={this.onBlur}
+								   ref={this.catchInputNode}
+								   value={this.state.inputValue}/>}
 			{this.dropdown()}
 		</div>
 	}
@@ -159,11 +187,19 @@ export default class DropDown extends Component {
 DropDown.propTypes = {
 	placeholder: PropTypes.string,
 	items: PropTypes.array,
-	selected: PropTypes.array,
+	selected: PropTypes.oneOfType([
+		PropTypes.array,
+		PropTypes.object,
+		PropTypes.null,
+	]),
 	onRemove: PropTypes.func,
 	onSelect: PropTypes.func,
 	filterItems: PropTypes.func,
 	className: PropTypes.string,
+	/**
+	 * true - можно выброать только один элемент из списка, false - много
+	 */
+	single: PropTypes.bool
 }
 
 DropDown.defaultProps = {

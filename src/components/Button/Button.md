@@ -11,6 +11,7 @@
 
 ```jsx
 <table cellPadding={5}>
+    <tbody>
     <tr>
         <td>type/mobile</td>
         <td>true</td>
@@ -43,6 +44,7 @@
             <Button mobile={true} type="transparent">Mobile button transparent</Button>
         </td>
     </tr>
+    </tbody>
 </table>
 ```
 

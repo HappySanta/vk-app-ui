@@ -15,7 +15,7 @@ export default class Checkbox extends Component {
 
 		const rp = {...restProps}
 		delete rp.className
-
+		delete rp.mobile
 		return <label className={className}>
 			<input type="checkbox" className={css["Checkbox__input"]} {...rp} />
 			<span className={css["Checkbox__text"]}>{children}</span>

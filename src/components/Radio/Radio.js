@@ -13,8 +13,10 @@ export default class Radio extends Component {
 			[css['Radio--mobile']]: isMobile(this.props)
 		})
 
+		const rp = {...restProps}
+		delete rp.mobile
 		return <label className={className}>
-			<input type="radio" className={css["Radio__input"]} {...restProps} />
+			<input type="radio" className={css["Radio__input"]} {...rp} />
 			<span className={css["Radio__text"]}>{children}</span>
 		</label>
 	}

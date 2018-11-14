@@ -15,8 +15,10 @@ export default class Link extends Component {
 			[css['Link--mobile']]: isMobile(this.props)
 		})
 
+		const rp = {...restProps}
+		delete rp.mobile
 		return <Component
-			className={className} {...restProps}>
+			className={className} {...rp}>
 			{children}
 		</Component>
 	}

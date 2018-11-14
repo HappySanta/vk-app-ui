@@ -12,7 +12,9 @@ class Textarea extends Component {
 			[css['Textarea--mobile']]: isMobile(this.props),
 			[baseClassName]: baseClassName,
 		})
-		return <textarea className={className} {...restProps} />
+		const rp = {...restProps}
+		delete rp.mobile
+		return <textarea className={className} {...rp} />
 	}
 }
 

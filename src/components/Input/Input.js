@@ -12,7 +12,9 @@ class Input extends Component {
 			[css['Input--mobile']]: isMobile(this.props),
 			[baseClassName]: baseClassName,
 		})
-		return <input className={className} {...restProps} />
+		const rp = {...restProps}
+		delete rp.mobile
+		return <input className={className} {...rp} />
 	}
 }
 

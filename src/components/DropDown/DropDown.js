@@ -155,7 +155,11 @@ export default class DropDown extends Component {
 	}
 
 	isEmpty() {
-		return !this.props.selected || !this.props.selected.length
+		if (this.props.single) {
+			return !this.props.selected
+		} else {
+			return !this.props.selected.length
+		}
 	}
 
 	render() {

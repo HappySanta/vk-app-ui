@@ -51,11 +51,16 @@
     }
   }
 
-  &--empty {
-    input {
+  &__wide-input {
       width: calc(100% - 66px);
       box-sizing: border-box;
-    }
+  }
+
+  &__zero-height-input {
+    height: 0;
+    border: none;
+    position: absolute;
+    opacity: 0;
   }
 
   &__list {

@@ -105,26 +105,16 @@ export default class DropDown extends Component {
 	}
 
 	renderItem = (item, index) => {
+		if (this.props.hideSelectedFromList) {
+			if (this.isSelectedItem(item, index)) {
+				return null
+			}
+		}
 		return <div key={index}
 					onClick={e => this.onItemClick(e, item)}
 					onMouseDown={this.onItemMouseDown}
 					className={css['DropDown__item']}>
 			{this.itemText(item)}
-		</div>
-	}
-
-	dropdown() {
-		if (!this.state.dropDown) {
-			return null
-		}
-		let filterText = this.state.inputValue.trim()
-		let items = this.props.items
-		if (filterText) {
-			items = items.filter( (item,index) => this.props.filterItems(filterText, item, index) )
-		}
-		return <div ref={this.catchListNode}
-					className={css["DropDown__list"]}>
-			{items.map(this.renderItem)}
 		</div>
 	}
 
@@ -154,6 +144,14 @@ export default class DropDown extends Component {
 		}
 	}
 
+	isSelectedItem(item) {
+		if (this.props.single) {
+			return this.props.selected === item
+		} else {
+			return this.props.selected.indexOf(item) !== -1
+		}
+	}
+
 	isEmpty() {
 		if (this.props.single) {
 			return !this.props.selected
@@ -162,21 +160,41 @@ export default class DropDown extends Component {
 		}
 	}
 
+	dropdown() {
+		if (!this.state.dropDown) {
+			return null
+		}
+		let filterText = this.state.inputValue.trim()
+		let items = this.props.items
+		if (filterText) {
+			items = items.filter((item, index) => this.props.filterItems(filterText, item, index))
+		}
+		return <div ref={this.catchListNode}
+					className={css["DropDown__list"]}>
+			{items.map(this.renderItem)}
+		</div>
+	}
+
 	render() {
 		const {className: baseClassName} = this.props
 
 		const className = createClassName({
 			[css["DropDown"]]: true,
-			[css["DropDown--empty"]]: this.isEmpty(),
 			[baseClassName]: baseClassName,
 		})
 
 		const renderInput = this.isEmpty() || !(this.props.single)
 
+		const inputClassName = createClassName({
+			[css["DropDown__wide-input"]]: this.isEmpty(),
+			[css["DropDown__zero-height-input"]]: !this.isEmpty() && !this.state.dropDown,
+		})
+
 		return <div onClick={this.onComponentClick} className={className}>
 			<div className={css['DropDown__icon']}/>
 			{this.selectedItems()}
 			{renderInput && <input type="text"
+								   className={inputClassName}
 								   placeholder={this.isEmpty() ? this.props.placeholder : ""}
 								   onChange={this.onChangeInputValue}
 								   onFocus={this.onFocus}
@@ -189,6 +207,7 @@ export default class DropDown extends Component {
 }
 
 DropDown.propTypes = {
+	hideSelectedFromList: PropTypes.bool,
 	placeholder: PropTypes.string,
 	items: PropTypes.array,
 	selected: PropTypes.oneOfType([
@@ -207,6 +226,7 @@ DropDown.propTypes = {
 }
 
 DropDown.defaultProps = {
+	hideSelectedFromList: false,
 	filterItems: (text, item) => {
 		let itemText = null
 		if (typeof item === "string") {

@@ -262,9 +262,16 @@
     color: #828282;
 }
 
-.DropDown--empty__8DZT1 input {
+.DropDown__wide-input__roxJs {
     width: calc(100% - 66px);
     box-sizing: border-box;
+}
+
+.DropDown__zero-height-input__2_ykn {
+    height: 0;
+    border: none;
+    position: absolute;
+    opacity: 0;
 }
 
 .DropDown__list__3cHeD {

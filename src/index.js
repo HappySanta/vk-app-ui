@@ -11,5 +11,23 @@ import Textarea from './components/Textarea/Textarea'
 import Notify from './components/Notify/Notify'
 import PageDialog from './components/PageDialog/PageDialog'
 import DropDown from './components/DropDown/DropDown'
+import Calendar from "./components/Calendar/Calendar"
+import DatePicker from "./components/DatePicker/DatePicker"
 
-module.exports = {Button, Link, WaitDots, Input, Checkbox, Radio, TimeView, Arrow, ModalDialog, Textarea, Notify, PageDialog, DropDown}
+module.exports = {
+	Button,
+	Link,
+	WaitDots,
+	Input,
+	Checkbox,
+	Radio,
+	TimeView,
+	Arrow,
+	ModalDialog,
+	Textarea,
+	Notify,
+	PageDialog,
+	DropDown,
+	DatePicker,
+	Calendar
+}

@@ -1,6 +1,6 @@
 {
   "name": "@happysanta/vk-app-ui",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "main": "dist/vkappui.js",
   "scripts": {
     "start": "webpack --watch",
@@ -50,10 +50,12 @@
     "react-styleguidist": "^7.1.0",
     "sass-loader": "^7.0.3",
     "webpack": "^4.16.1",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "prop-types": "latest"
   },
   "description": "Элементы интерфейса в стиле ВК",
   "dependencies": {
+    "moment": "^2.22.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   }

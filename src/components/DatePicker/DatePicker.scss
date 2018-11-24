@@ -1,0 +1,11 @@
+.DatePicker {
+  position: relative;
+  &__dropdown {
+    outline: 0;
+    z-index: 100;
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+  }
+}

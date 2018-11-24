@@ -16,8 +16,6 @@ export default class Calendar extends Component {
 		super(props)
 
 		this.state.currentDay = this.props.currentDay
-
-		testGetWeeksInMonth()
 	}
 
 	componentWillReceiveProps(nextProps) {

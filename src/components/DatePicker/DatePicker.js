@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {createClassName, isMobile} from "../../tools"
-import css from './DatePicker.scss'
-import ModalDialog from "../ModalDialog/ModalDialog"
+import {createClassName} from "../../tools"
 import Calendar from "../Calendar/Calendar"
 import {inMonthNamesFullRU, monthNamesFullRU, weekNamesShortRU} from "../Calendar/helpers"
+import Input from '../Input/Input'
+import css from './DatePicker.scss'
 
 export default class DatePicker extends Component {
 
@@ -64,9 +64,11 @@ export default class DatePicker extends Component {
 			<Input value={this.getTextValue()}
 				   onFocus={this.onFocus}
 				   onBlur={this.onBlur}
+				   autoComplete={"off"}
 				   onChange={() => {
 				   }}
 				   className={this.props.inputClassName}
+				   autoFocus={this.props.autoFocus}
 				   placeholder={this.props.placeholder}/>
 			{this.state.open ? this.popup() : null}
 		</div>
@@ -98,6 +100,7 @@ DatePicker.propTypes = {
 	 * Объект вида {1:Январь ...... 12:Декабрь} для переводов, по умолчанию русский язык
 	 */
 	monthNames: PropTypes.object,
+	autoFocus: PropTypes.bool,
 }
 
 DatePicker.defaultProps = {

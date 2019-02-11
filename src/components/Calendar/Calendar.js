@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {createClassName} from "../../tools"
 import moment from 'moment'
 import css from "./Calendar.scss"
-import {getWeeksInMonth, monthNamesFullRU, testGetWeeksInMonth, weekNamesShortRU} from "./helpers"
+import {getWeeksInMonth, monthNamesFullRU, weekNamesShortRU} from "./helpers"
 
 export default class Calendar extends Component {
 

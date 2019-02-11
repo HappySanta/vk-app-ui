@@ -1,4 +1,5 @@
 var path = require('path');
+const webpack = require('webpack')
 var autoprefixer = require('autoprefixer');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -47,7 +48,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({filename: "vkappui.css"})
+	  new MiniCssExtractPlugin({filename: "vkappui.css"}),
+	  new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ],
   externals: {
     'react': 'commonjs react'

@@ -89,6 +89,9 @@
   &--secondary {
     color: #55677d;
     background-color: #e5ebf1;
+    &:visited {
+      color: #55677d;
+    }
 
     &:not(:disabled):not(.Button--mobile):not(.Button--loading) {
       &:hover {
@@ -103,6 +106,9 @@
   &--transparent {
     color: #2a5885;
     background-color: transparent;
+    &:visited {
+      color: #2a5885;
+    }
 
     &:not(:disabled):not(.Button--mobile):not(.Button--loading) {
 

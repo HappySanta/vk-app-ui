@@ -1,6 +1,6 @@
 {
   "name": "@happysanta/vk-app-ui",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "main": "dist/vkappui.js",
   "scripts": {
     "start": "webpack --watch",

@@ -49,7 +49,7 @@ export default class ModalDialog extends Component {
 	}
 
 	makeCenter() {
-		if (this.windowNode && this.rootNode && this.bgNode) {
+		if (this.windowNode && this.rootNode && this.bgNode && !this.props.preventCenterPopup) {
 			const windowHeight = this.windowNode.clientHeight
 			const rootHeight = this.rootNode.clientHeight
 			if (rootHeight - windowHeight >= 10) {
@@ -113,6 +113,7 @@ ModalDialog.propTypes = {
 	confirmText: PropTypes.string,
 	catchOverflow: PropTypes.bool,
 	loading: PropTypes.bool,
+	preventCenterPopup: PropTypes.bool,
 }
 
 ModalDialog.defaultProps = {
@@ -122,4 +123,5 @@ ModalDialog.defaultProps = {
 	cancelText: "Отменить",
 	confirmText: "Сохранить",
 	catchOverflow:true,
+	preventCenterPopup: false,
 }

@@ -49,6 +49,9 @@
     padding: 0;
     margin: 0;
     position: absolute;
+    &:hover {
+      opacity: 0.9;
+    }
   }
 
   &__body {

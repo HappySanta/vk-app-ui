@@ -8,11 +8,24 @@ import moment from "moment"
  */
 export function getWeeksInMonth(date) {
 	date = date.clone()
-	let count = date.endOf('month').isoWeek() - date.startOf('month').isoWeek()
-	if (count > 0) {
-		return count + 1
+	const startWeek = date.startOf('month').isoWeek()
+	const endWeek = date.endOf('month').isoWeek()
+	if (endWeek > startWeek) {
+		return (endWeek - startWeek) + 1
 	} else {
-		return date.endOf('month').isoWeeksInYear() - date.startOf('month').isoWeek() + 1
+		// Первый или последний день месяца
+		// Я не знаю как нормально посчитать колчество недель в этом случае (( но задачу надо закрыть
+		const start = date.clone().startOf('month')
+		let weekNumber = null
+		let weekCount = 0
+		while (start.isSame(date, 'month')) {
+			if (weekNumber !== start.isoWeek()) {
+				weekCount++
+				weekNumber = start.isoWeek()
+			}
+			start.add(1, 'day')
+		}
+		return weekCount
 	}
 }
 
@@ -23,7 +36,11 @@ export function testGetWeeksInMonth() {
 	console.assert(getWeeksInMonth(day) === 6, "Expect 6 got " + getWeeksInMonth(day))
 	console.assert(getWeeksInMonth(moment("2018-10-01")) === 5, "Expect 5 got " + getWeeksInMonth(moment("2018-10-01")))
 	console.assert(getWeeksInMonth(moment("2018-09-01")) === 5, "Expect 5 got " + getWeeksInMonth(moment("2018-09-01")))
+	console.assert(getWeeksInMonth(moment("2019-12-01")) === 6, "Expect 6 got " + getWeeksInMonth(moment("2019-12-01")))
+	console.assert(getWeeksInMonth(moment("2017-01-01")) === 6, "Expect 6 got " + getWeeksInMonth(moment("2017-01-01")))
 }
+
+// testGetWeeksInMonth()
 
 export const weekNamesShortRU = {
 	1: "Пн",

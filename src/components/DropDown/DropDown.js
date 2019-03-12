@@ -213,7 +213,6 @@ DropDown.propTypes = {
 	selected: PropTypes.oneOfType([
 		PropTypes.array,
 		PropTypes.object,
-		PropTypes.null,
 	]),
 	onRemove: PropTypes.func,
 	onSelect: PropTypes.func,

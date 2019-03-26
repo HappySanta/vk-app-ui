@@ -54,6 +54,7 @@ export default class DatePicker extends Component {
 			<Calendar weekNames={this.props.weekNames || weekNamesShortRU}
 					  monthNames={this.props.monthNames || monthNamesFullRU}
 					  currentDay={this.props.value || undefined}
+                      isActiveDay={this.props.isActiveDay}
 					  onChange={this.onChange}/>
 		</div>
 	}
@@ -77,7 +78,7 @@ export default class DatePicker extends Component {
 
 
 DatePicker.propTypes = {
-	isActiveDate: PropTypes.func,
+	isActiveDay: PropTypes.func,
 	inputClassName: PropTypes.string,
 	/**
 	 * momentInstance => {}
@@ -106,7 +107,7 @@ DatePicker.propTypes = {
 DatePicker.defaultProps = {
 	weekNames: weekNamesShortRU,
 	monthNames: monthNamesFullRU,
-	isActiveDate: () => true,
+	isActiveDay: () => true,
 	getDateFormat: day => day.format('D ' + inMonthNamesFullRU[day.month() + 1] + ' YYYY')
 
 }

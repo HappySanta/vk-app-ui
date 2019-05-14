@@ -6,6 +6,10 @@ import {inMonthNamesFullRU, monthNamesFullRU, weekNamesShortRU} from "../Calenda
 import Input from '../Input/Input'
 import css from './DatePicker.scss'
 
+function nothing() {
+
+}
+
 export default class DatePicker extends Component {
 
 	state = {
@@ -54,7 +58,7 @@ export default class DatePicker extends Component {
 			<Calendar weekNames={this.props.weekNames || weekNamesShortRU}
 					  monthNames={this.props.monthNames || monthNamesFullRU}
 					  currentDay={this.props.value || undefined}
-                      isActiveDay={this.props.isActiveDay}
+					  isActiveDay={this.props.isActiveDay}
 					  onChange={this.onChange}/>
 		</div>
 	}
@@ -66,10 +70,10 @@ export default class DatePicker extends Component {
 				   onFocus={this.onFocus}
 				   onBlur={this.onBlur}
 				   autoComplete={"off"}
-				   onChange={() => {
-				   }}
+				   onChange={nothing}
 				   className={this.props.inputClassName}
 				   autoFocus={this.props.autoFocus}
+				   disabled={this.props.disabled}
 				   placeholder={this.props.placeholder}/>
 			{this.state.open ? this.popup() : null}
 		</div>
@@ -102,11 +106,13 @@ DatePicker.propTypes = {
 	 */
 	monthNames: PropTypes.object,
 	autoFocus: PropTypes.bool,
+	disabled: PropTypes.bool,
 }
 
 DatePicker.defaultProps = {
 	weekNames: weekNamesShortRU,
 	monthNames: monthNamesFullRU,
+	disabled: false,
 	isActiveDay: () => true,
 	getDateFormat: day => day.format('D ' + inMonthNamesFullRU[day.month() + 1] + ' YYYY')
 

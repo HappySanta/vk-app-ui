@@ -1,14 +1,33 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import WaitDots from "../WaitDots/WaitDots"
 import css from './DropDown.scss'
-import {createClassName, isMobile} from "../../tools"
+import {createClassName} from "../../tools"
 
 export default class DropDown extends Component {
 
 	state = {
 		inputValue: "",
 		dropDown: false,
+	}
+
+	constructor(props) {
+		super(props)
+		this.handleClickOutside = this.handleClickOutside.bind(this)
+	}
+
+	componentDidMount() {
+		document.addEventListener('mousedown', this.handleClickOutside)
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.handleClickOutside)
+	}
+
+	handleClickOutside(event) {
+		if (this.listNode && !this.listNode.contains(event.target) && this.state.dropDown) {
+			this.setState({dropDown: false})
+			this.isOutsideClick = true
+		}
 	}
 
 
@@ -23,6 +42,7 @@ export default class DropDown extends Component {
 	isItemMouseDown = false
 	isItemClick = false
 	isRemoveClick = false
+	isOutsideClick = false
 
 	onChangeInputValue = e => {
 		this.setState({inputValue: e.target.value})
@@ -48,6 +68,10 @@ export default class DropDown extends Component {
 		}
 		if (this.isRemoveClick) {
 			this.isRemoveClick = false
+			return
+		}
+		if (this.isOutsideClick) {
+			this.isOutsideClick = false
 			return
 		}
 

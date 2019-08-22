@@ -62,6 +62,7 @@ export default class DatePicker extends Component {
 					  currentDay={this.props.value || undefined}
 					  isActiveDay={this.props.isActiveDay}
 					  isActiveMonth={this.props.isActiveMonth}
+					  showYearAndMonthPicker={this.props.showYearAndMonthPicker}
 					  onChange={this.onChange}/>
 		</div>
 	}

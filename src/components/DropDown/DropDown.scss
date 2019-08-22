@@ -1,5 +1,9 @@
+@import "../style.scss";
+
+$topPadding: 3px;
+
 .DropDown {
-  font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-family: $font;
   font-size: 13px;
   box-sizing: border-box;
   box-shadow: none;
@@ -9,29 +13,28 @@
   outline: none;
   appearance: none;
   margin: 0;
-  padding: 4px 4px 0 4px;
+  padding: $topPadding 4px 0 4px;
   display: inline-block;
-  min-width: 300px;
   position: relative;
   border: 1px solid #d3d9de;
 
   input {
-    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-family: $font;
     font-size: 13px;
-    line-height: 22px;
     height: 22px;
-    margin: 0 0 4px 0;
+    margin: 0 0 $topPadding 0;
     padding: 0 0 0 3px;
     outline: none;
     appearance: none;
     color: #000;
     border: none;
-    background: #fff;
+    background: transparent;
     box-shadow: none;
     box-sizing: border-box;
     display: inline-block;
     min-width: 120px;
     vertical-align: middle;
+    width: calc(100% - 26px - 4px);
 
     &::-webkit-input-placeholder {
       transition: color 0.2s ease;
@@ -96,7 +99,7 @@
     line-height: 15px;
     padding-left: 8px;
     padding-top: 3px;
-    padding-bottom: 4px;
+    padding-bottom: $topPadding;
     padding-right: 25px;
     box-sizing: border-box;
     position: relative;

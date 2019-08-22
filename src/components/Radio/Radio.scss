@@ -1,3 +1,4 @@
+@import "../style.scss";
 .Radio {
   display: inline-block;
   user-select: none;
@@ -57,7 +58,7 @@
   }
 
   &__text {
-    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-family: $font;
     font-size: 13px;
     line-height: 19px;
     position: relative;

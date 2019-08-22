@@ -1,5 +1,39 @@
+@import "../style.scss";
+
+$borderColor: #c5d0db;
 .Calendar {
   width: 212px;
+
+  &__with-side {
+    position: relative;
+  }
+
+  &__list {
+    overflow: auto;
+    //position: absolute;
+    //top:0;
+    //bottom: 0;
+    height: 100%;
+    border-left: 1px solid $borderColor;
+
+    &:first-child {
+      border-left: none;
+    }
+  }
+
+  &__year-and-month {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    bottom: 0;
+    background-color: #FFF;
+    border-color: $borderColor;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: stretch;
+  }
 
   &__header {
     background-color: #5181b8;
@@ -91,6 +125,20 @@
       &:hover {
         background-color: #f2f6fa;
       }
+    }
+  }
+
+  &__year {
+    &:hover {
+      background-color: #edf0f5;
+    }
+
+    cursor: pointer;
+    font-size: 12.5px;
+    padding: 5px 10px;
+
+    &--active {
+      background-color: #edf0f5;
     }
   }
 }

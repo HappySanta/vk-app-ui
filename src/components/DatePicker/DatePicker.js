@@ -19,7 +19,9 @@ export default class DatePicker extends Component {
 	isMouseDownEvent = false
 
 	onFocus = () => {
-		this.setState({open: true})
+		if (!this.state.open) {
+			this.setState({open: true})
+		}
 	}
 
 	onBlur = () => {
@@ -59,19 +61,23 @@ export default class DatePicker extends Component {
 					  monthNames={this.props.monthNames || monthNamesFullRU}
 					  currentDay={this.props.value || undefined}
 					  isActiveDay={this.props.isActiveDay}
+					  isActiveMonth={this.props.isActiveMonth}
 					  onChange={this.onChange}/>
 		</div>
 	}
 
 	render() {
-		return <div
-			className={createClassName({[css["DatePicker"]]: true, [this.props.className]: !!this.props.className})}>
+		return <div onClick={this.onFocus}
+					className={createClassName({
+						[css["DatePicker"]]: true,
+						[this.props.className]: !!this.props.className
+					})}>
 			<Input value={this.getTextValue()}
 				   onFocus={this.onFocus}
 				   onBlur={this.onBlur}
 				   autoComplete={"off"}
 				   onChange={nothing}
-				   className={this.props.inputClassName}
+				   className={this.props.inputClassName + ' ' + css["DatePicker__input"]}
 				   autoFocus={this.props.autoFocus}
 				   disabled={this.props.disabled}
 				   placeholder={this.props.placeholder}/>
@@ -83,6 +89,7 @@ export default class DatePicker extends Component {
 
 DatePicker.propTypes = {
 	isActiveDay: PropTypes.func,
+	isActiveMonth: PropTypes.func,
 	inputClassName: PropTypes.string,
 	/**
 	 * momentInstance => {}
@@ -107,6 +114,9 @@ DatePicker.propTypes = {
 	monthNames: PropTypes.object,
 	autoFocus: PropTypes.bool,
 	disabled: PropTypes.bool,
+	showYearAndMonthPicker: PropTypes.bool,
+	startYearList: PropTypes.number,
+	endYearList: PropTypes.number,
 }
 
 DatePicker.defaultProps = {
@@ -114,6 +124,9 @@ DatePicker.defaultProps = {
 	monthNames: monthNamesFullRU,
 	disabled: false,
 	isActiveDay: () => true,
-	getDateFormat: day => day.format('D ' + inMonthNamesFullRU[day.month() + 1] + ' YYYY')
-
+	isActiveMonth: () => true,
+	getDateFormat: day => day.format('D ' + inMonthNamesFullRU[day.month() + 1] + ' YYYY'),
+	showYearAndMonthPicker: false,
+	startYearList: 1900,
+	endYearList: 2020,
 }

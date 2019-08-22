@@ -24,6 +24,13 @@ export default class Calendar extends Component {
 		}
 	}
 
+	setMiddleScorole = node => {
+		if (!this.setMiddleScoroleWasCall) {
+			this.setMiddleScoroleWasCall = true
+			node.scrollTop = node.scrollHeight / 2
+		}
+	}
+
 	onClick = day => {
 		if (this.props.onChange) {
 			this.props.onChange(day)
@@ -128,8 +135,8 @@ export default class Calendar extends Component {
 		const className = createClassName({
 			[css["Calendar__day"]]: true,
 			[css["Calendar__month"]]: true,
-			[css["Calendar__day--not-active"]]: (day.isBefore(moment(), 'month')),
-			[css["Calendar__day--today"]]: (day.isSame(this.m(), 'month')),
+			[css["Calendar__day--not-active"]]: !(this.props.isActiveMonth(day)),
+			[css["Calendar__day--today"]]: (this.props.isCurrentMonth(day)),
 		})
 		const d = day.clone()
 		return <td onClick={() => this.onSetCurrentMonth(d)}
@@ -201,14 +208,65 @@ export default class Calendar extends Component {
 		}
 	}
 
+	setYear = (e) => {
+		const year = parseInt(e.target.getAttribute('title'), 10)
+		this.setState({
+			currentDay: this.state.currentDay.clone().year(year)
+		})
+	}
+
+	setMonth = (index) => {
+		this.setState({
+			currentDay: this.state.currentDay.clone().month(index - 1)
+		})
+	}
+
+	isActiveYear(year) {
+		return this.m().year() === year
+	}
+
+	isActiveMonth(index) {
+		return this.m().month() + 1 === index
+	}
+
+	yearAndMonth() {
+		const list = []
+		for (let i = this.props.startYearList; i < this.props.endYearList; i++) {
+			list.push(<div key={i}
+						   onClick={this.setYear}
+						   title={i}
+						   className={createClassName({
+							   [css["Calendar__year"]]: 1,
+							   [css["Calendar__year--active"]]: this.isActiveYear(i)
+						   })}>{i}</div>)
+		}
+		return <div className={css["Calendar__year-and-month"]}>
+			<div ref={this.setMiddleScorole} className={css["Calendar__list"]}>
+				{list}
+			</div>
+			<div ref={this.setMiddleScorole} className={css["Calendar__list"]}>
+				{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => <div key={index}
+																			 onClick={() => this.setMonth(index)}
+																			 title={this.props.monthNames[index]}
+																			 className={createClassName({
+																				 [css["Calendar__year"]]: 1,
+																				 [css["Calendar__year--active"]]: this.isActiveMonth(index)
+																			 })}>{this.props.monthNames[index]}</div>)}
+			</div>
+		</div>
+	}
+
 	render() {
-		return <div className={css["Calendar"]}>
+		const {showYearAndMonthPicker} = this.props
+		return <div
+			className={createClassName({[css["Calendar"]]: 1, [css["Calendar__with-side"]]: showYearAndMonthPicker})}>
 			<div onClick={this.onHeaderClick} className={css["Calendar__header"]}>
 				<button onClick={this.onPrevMonthClick} className={css["Calendar__left"]}/>
 				<button onClick={this.onNextMonthClick} className={css["Calendar__right"]}/>
 				{this.header()}
 			</div>
 			{this.state.monthPick ? this.month() : this.calendar()}
+			{showYearAndMonthPicker ? this.yearAndMonth() : null}
 		</div>
 	}
 }
@@ -218,9 +276,14 @@ Calendar.propTypes = {
 	weekNames: PropTypes.object,
 	currentDay: PropTypes.instanceOf(moment),
 	isActiveDay: PropTypes.func,
+	isActiveMonth: PropTypes.func,
 	isCurrentDay: PropTypes.func,
+	isCurrentMonth: PropTypes.func,
 	onChangeCurrentMonth: PropTypes.func,
 	onChange: PropTypes.func,
+	showYearAndMonthPicker: PropTypes.bool,
+	startYearList: PropTypes.number,
+	endYearList: PropTypes.number,
 }
 
 Calendar.defaultProps = {
@@ -228,5 +291,10 @@ Calendar.defaultProps = {
 	weekNames: weekNamesShortRU,
 	monthNames: monthNamesFullRU,
 	isActiveDay: day => day.isSameOrAfter(moment(), 'day'),
-	isCurrentDay: (day, currentDay) => day.isSame(currentDay, 'day')
+	isActiveMonth: day => day.isBefore(moment(), 'month'),
+	isCurrentDay: (day, currentDay) => day.isSame(currentDay, 'day'),
+	isCurrentMonth: (day, currentDay) => day.isSame(currentDay, 'month'),
+	showYearAndMonthPicker: false,
+	startYearList: 1900,
+	endYearList: 2020,
 }

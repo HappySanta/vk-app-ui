@@ -30,7 +30,7 @@ module.exports = {
             options: {
 				modules: true,
 				importLoaders: 1,
-				localIdentName: "[local]__[hash:base64:5]",
+              localIdentName: "[local]__hs0tag",
             }
           },
           {

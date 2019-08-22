@@ -1,5 +1,6 @@
+@import "../style.scss";
 .Textarea {
-  font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-family: $font;
   font-size: 13px;
   min-height: 30px;
   max-width: 100%;

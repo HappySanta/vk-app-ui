@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import WaitDots from "../WaitDots/WaitDots"
-import css from './ModalDialog.scss'
-import {createClassName, isMobile} from "../../tools"
+import {createClassName} from "../../tools"
 import Button from "../Button/Button"
+import css from './ModalDialog.scss'
 
 export default class ModalDialog extends Component {
 
@@ -80,7 +79,7 @@ export default class ModalDialog extends Component {
 					onClick={this.onBackgroundClick}
 					className={css['ModalDialog']}>
 			<div ref={this.catchBgNode}
-				 className={css['ModalDialog__box']}>
+				 className={css['ModalDialog__box'] + ' ' + this.props.className}>
 				<div onClick={this.onWindowClick}
 					 ref={this.catchWindowNode}
 					 className={css['ModalDialog__window']}>
@@ -114,6 +113,7 @@ ModalDialog.propTypes = {
 	catchOverflow: PropTypes.bool,
 	loading: PropTypes.bool,
 	preventCenterPopup: PropTypes.bool,
+	className: PropTypes.string,
 }
 
 ModalDialog.defaultProps = {
@@ -124,4 +124,5 @@ ModalDialog.defaultProps = {
 	confirmText: "Сохранить",
 	catchOverflow:true,
 	preventCenterPopup: false,
+	className: "",
 }

@@ -1,5 +1,7 @@
+@import "../style.scss";
+
 .Link {
-  font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-family: $font;
   font-size: 13px;
   font-weight: 400;
   line-height: 18px;

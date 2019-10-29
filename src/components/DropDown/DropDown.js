@@ -8,25 +8,37 @@ export default class DropDown extends Component {
 	state = {
 		inputValue: "",
 		dropDown: false,
+		dropDownY: 'bottom',
+		hoverItemIndex: -1,
 	}
 
 	constructor(props) {
 		super(props)
 		this.handleClickOutside = this.handleClickOutside.bind(this)
+		this.changeDropDownPosition = this.changeDropDownPosition.bind(this);
 	}
 
 	componentDidMount() {
 		document.addEventListener('mousedown', this.handleClickOutside)
 	}
 
+	t = null
+
 	componentWillUnmount() {
 		document.removeEventListener('mousedown', this.handleClickOutside)
+		clearTimeout(this.t)
 	}
 
 	handleClickOutside(event) {
 		if (this.listNode && !this.listNode.contains(event.target) && this.state.dropDown) {
-			this.setState({dropDown: false})
-			this.isOutsideClick = true
+			if (event.target !== this.inputNode) {
+				this.setState({dropDown: false})
+				this.isOutsideClick = true
+				clearTimeout(this.t)
+				this.t = setTimeout(() => {
+					this.isOutsideClick = false
+				}, 200)
+			}
 		}
 	}
 
@@ -34,15 +46,36 @@ export default class DropDown extends Component {
 	catchInputNode = node => this.inputNode = node
 	catchListNode = node => this.listNode = node
 
-	justFocused = false
-
 	inputNode = null
 	listNode = null
+	selectedItem = null
 
 	isItemMouseDown = false
 	isItemClick = false
 	isRemoveClick = false
 	isOutsideClick = false
+
+	changeDropDownPosition() {
+		const {bottom, top, height} = this.listNode.getBoundingClientRect(),
+			{dropDownY} = this.state;
+
+		if (bottom > window.innerHeight && dropDownY === 'bottom') {
+			this.setState({dropDownY: 'top'})
+		}
+
+		const selectedEl = this.selectedItem
+
+		if (selectedEl) {
+			const {top: selectedElTop, height: selectedElHeight} = selectedEl.getBoundingClientRect(),
+				topDiff = Math.abs(top - selectedElTop),
+				scrolled = this.listNode.scrollTop;
+
+			let newScroll = top <= selectedElTop ? scrolled + topDiff : scrolled - topDiff;
+			newScroll = newScroll - height/2 + selectedElHeight/2;
+
+			this.listNode.scrollTop = newScroll
+		}
+	}
 
 	onChangeInputValue = e => {
 		this.setState({inputValue: e.target.value})
@@ -54,11 +87,14 @@ export default class DropDown extends Component {
 			return
 		}
 		this.setState({dropDown: false})
+		this.onDropdownClose()
 	}
 
-	onFocus = () => {
-		this.justFocused = true
-		this.setState({dropDown: true})
+	openDropdown = () => {
+		this.setState({dropDown: true}, () => {
+			this.listNode.style = 'display:block;'
+			this.changeDropDownPosition()
+		})
 	}
 
 	onComponentClick = e => {
@@ -76,18 +112,26 @@ export default class DropDown extends Component {
 		}
 
 		if (this.inputNode) {
-			if (document.activeElement !== this.inputNode) {
+			if (document.activeElement !== this.inputNode && !this.state.dropDown) {
 				this.inputNode.focus()
 			}
 		} else {
-			this.onFocus()
+			this.openDropdown()
 		}
+	}
+
+	onDropdownClose() {
+		const {dropDownY, hoverItemIndex} = this.state
+		if (hoverItemIndex !== -1) this.setState({hoverItemIndex: -1})
+		if (dropDownY === 'top') this.setState({dropDownY: 'bottom'})
+		this.listNode.style = 'display:none;'
 	}
 
 	onItemClick = (e, item) => {
 		this.isItemClick = true
 		this.onSelectItem(item)
 		this.setState({dropDown: false, inputValue: ""})
+		this.onDropdownClose()
 	}
 
 	onItemMouseDown = e => {
@@ -128,16 +172,28 @@ export default class DropDown extends Component {
 		}
 	}
 
+	mouseOverHandler(index) {
+		this.setState({hoverItemIndex: index})
+	}
+
 	renderItem = (item, index) => {
 		if (this.props.hideSelectedFromList) {
 			if (this.isSelectedItem(item, index)) {
 				return null
 			}
 		}
+		const isActive = this.state.hoverItemIndex === -1 && this.props.single && this.isSelectedItem(item, index)
+		const className = createClassName({
+			[css['DropDown__item']]: true,
+			[css['DropDown__item--hover']]: this.state.hoverItemIndex === index,
+			[css['DropDown__item--active']]: isActive,
+		})
 		return <div key={index}
 					onClick={e => this.onItemClick(e, item)}
 					onMouseDown={this.onItemMouseDown}
-					className={css['DropDown__item']}>
+					ref={ref => this.props.single && this.isSelectedItem(item, index) ? this.selectedItem = ref : () => {}}
+					onMouseOver={() => this.mouseOverHandler(index)}
+					className={className}>
 			{this.itemText(item)}
 		</div>
 	}
@@ -169,10 +225,21 @@ export default class DropDown extends Component {
 	}
 
 	isSelectedItem(item) {
+		const isSelected = (item, selected) => {
+			if (typeof selected === "object" && item.value !== undefined && selected.value !== undefined) {
+				return selected.value === item.value
+			} else {
+				return selected === item
+			}
+		}
+
+		let selected = this.props.selected
 		if (this.props.single) {
-			return this.props.selected === item
+			return isSelected(item, selected)
 		} else {
-			return this.props.selected.indexOf(item) !== -1
+			return this.props.selected.some(selectedItem => {
+				return isSelected(item, selectedItem)
+			})
 		}
 	}
 
@@ -185,26 +252,36 @@ export default class DropDown extends Component {
 	}
 
 	dropdown() {
-		if (!this.state.dropDown) {
-			return null
-		}
 		let filterText = this.state.inputValue.trim()
 		let items = this.props.items
 		if (filterText) {
 			items = items.filter((item, index) => this.props.filterItems(filterText, item, index))
 		}
+		const className = createClassName({
+			[css["DropDown__list"]]: true,
+		})
+		let style = {}
+		if (this.props.maxHeight) {
+			style.maxHeight = this.props.maxHeight
+		}
 		return <div ref={this.catchListNode}
-					className={css["DropDown__list"]}>
-			{items.map(this.renderItem)}
+					style={style}
+					className={className}>
+			{!items.length && !this.props.single && this.props.notFoundText ? <div className={css['DropDown__item']}>
+				{this.props.notFoundText}
+			</div> : items.map(this.renderItem)}
 		</div>
 	}
 
 	render() {
-		const {className: baseClassName} = this.props
+		const {className: baseClassName, single, width} = this.props
 
 		const className = createClassName({
 			[css["DropDown"]]: true,
 			[baseClassName]: baseClassName,
+			[css[`DropDown--shown`]]: this.state.dropDown,
+			[css[`DropDown--${this.state.dropDownY}`]]: true,
+			[css[`DropDown--single`]]: !!single,
 		})
 
 		const renderInput = this.isEmpty() || !(this.props.single)
@@ -213,15 +290,18 @@ export default class DropDown extends Component {
 			[css["DropDown__wide-input"]]: this.isEmpty(),
 			[css["DropDown__zero-height-input"]]: !this.isEmpty() && !this.state.dropDown,
 		})
-
-		return <div onClick={this.onComponentClick} className={className}>
+		let style = {}
+		if (width) {
+			style.width = width
+		}
+		return <div ref={ref => this.wrapper = ref} style={style} onClick={this.onComponentClick} className={className}>
 			<div className={css['DropDown__icon']}/>
 			{this.selectedItems()}
 			{renderInput && <input type="text"
 								   className={inputClassName}
 								   placeholder={this.isEmpty() ? this.props.placeholder : ""}
 								   onChange={this.onChangeInputValue}
-								   onFocus={this.onFocus}
+								   onFocus={this.openDropdown}
 								   onBlur={this.onBlur}
 								   ref={this.catchInputNode}
 								   value={this.state.inputValue}/>}
@@ -245,7 +325,10 @@ DropDown.propTypes = {
 	/**
 	 * true - можно выброать только один элемент из списка, false - много
 	 */
-	single: PropTypes.bool
+	single: PropTypes.bool,
+	maxHeight: PropTypes.number,
+	width: PropTypes.number,
+	notFoundText: PropTypes.string,
 }
 
 DropDown.defaultProps = {

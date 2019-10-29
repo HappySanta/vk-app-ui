@@ -8,7 +8,7 @@ $topPadding: 3px;
   box-sizing: border-box;
   box-shadow: none;
   background: #fff;
-  border-radius: 2px;
+  border-radius: 3px;
   color: #000;
   outline: none;
   appearance: none;
@@ -17,6 +17,20 @@ $topPadding: 3px;
   display: inline-block;
   position: relative;
   border: 1px solid #d3d9de;
+
+  &--shown.DropDown--top {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &--shown.DropDown--bottom {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &--single {
+    white-space: nowrap;
+  }
 
   input {
     font-family: $font;
@@ -67,27 +81,58 @@ $topPadding: 3px;
   }
 
   &__list {
+    opacity: 0;
     position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+    display: none;
     left: -1px;
     right: -1px;
-    top: 100%;
     z-index: 1000;
     background: #FFF;
-    border-radius: 2px;
+    border-radius: 3px;
     border: 1px solid #d3d9de;
     max-height: 450px;
-    overflow: auto;
+    overflow-y: auto;
+  }
+
+  &--shown &__list {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  &--top &__list {
+    top: auto;
+    bottom: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+  }
+
+  &--bottom &__list {
+    top: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
   }
 
   &__item {
     max-width: 100%;
     word-break: break-word;
-    padding: 10px 15px;
+    line-height: 16px;
+    padding: 6px 9px 8px 9px;
     cursor: pointer;
 
-    &:hover,&--active {
-      background-color: #d3d9de;
+    &--hover,&--active {
+      background-color: #e7edf2;
     }
+  }
+
+  &--single &__item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__selected-item {
@@ -112,6 +157,10 @@ $topPadding: 3px;
       color: #000;
       padding-right: 8px;
       cursor: pointer;
+      max-width: calc(100% - 30px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
@@ -141,6 +190,6 @@ $topPadding: 3px;
     cursor: pointer;
     float: right;
     vertical-align: top;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHBhdGggaWQ9ImEiIGQ9Ik0wIDBoMTF2NkgweiIvPjwvZGVmcz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxtYXNrIGlkPSJiIiBmaWxsPSIjZmZmIj48dXNlIHhsaW5rOmhyZWY9IiNhIi8+PC9tYXNrPjxwYXRoIHN0cm9rZT0iI0IwQjRCOCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgbWFzaz0idXJsKCNiKSIgZD0iTS43NS43NWw0Ljc1IDQuNSA0Ljc1LTQuNSIvPjwvZz48L3N2Zz4=);
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h11v6H0z'/%3E%3C/defs%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h16v16H0z'/%3E%3Cg transform='translate(2.5 5)'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cpath stroke='%23B0B4B8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' mask='url(%23b)' d='M.75.75l4.75 4.5 4.75-4.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 }

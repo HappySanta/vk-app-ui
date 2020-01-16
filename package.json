@@ -1,13 +1,14 @@
 {
   "name": "@happysanta/vk-app-ui",
-  "version": "0.1.29",
+  "version": "0.1.30",
   "main": "dist/vkappui.js",
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack -p",
     "build:guide": "npx styleguidist build",
     "watch:guide": "npx styleguidist server",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "pub": "npm publish --access public"
   },
   "repository": {
     "type": "git",

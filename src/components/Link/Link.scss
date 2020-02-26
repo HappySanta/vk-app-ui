@@ -1,25 +1,10 @@
 @import "../style.scss";
 
 .Link {
-  font-family: $font;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 18px;
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: auto;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  zoom: 1;
   cursor: pointer;
-  white-space: nowrap;
   outline: none;
-  vertical-align: top;
   text-decoration: none;
   color: #2A5885;
-  border: 0;
-  box-sizing: border-box;
-  background: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:hover:not(:disabled):not(.Link--mobile) {
@@ -36,10 +21,5 @@
 
   &--bold {
     font-weight: 600;
-  }
-
-  &--mobile {
-    font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
-    font-size: 14px;
   }
 }

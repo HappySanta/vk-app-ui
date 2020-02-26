@@ -32,7 +32,16 @@ class Button extends Component {
 	}
 
 	render() {
-		let {type, mode, component, className: baseClassName, children, loading, fixedWidth, wide, ...restProps} = this.props
+		let {
+			type, mode, component,
+			left, right, top, bottom,
+			className: baseClassName,
+			children,
+			loading,
+			fixedWidth,
+			wide,
+			...restProps
+		} = this.props
 		let Component = component ? component : this.props.href ? "a" : 'button'
 
 
@@ -41,6 +50,10 @@ class Button extends Component {
 			[baseClassName ? baseClassName : '']: true,
 			[css['Button--loading']]: loading,
 			[css['Button--wide']]: wide,
+			[css['Button--left']]: left,
+			[css['Button--right']]: right,
+			[css['Button--top']]: top,
+			[css['Button--bottom']]: bottom,
 			[!!(mode || type) ? css['Button--' + (mode || type)] : '']: !!(mode || type),
 		})
 
@@ -104,6 +117,15 @@ Button.propTypes = {
 	rel: PropTypes.string,
 	/** Блочная нопка на всю ширину */
 	wide: PropTypes.bool,
+
+	/** Отступ слева **/
+	left: PropTypes.bool,
+	/** Отступ справа **/
+	right: PropTypes.bool,
+	/** Отступ сверху **/
+	top: PropTypes.bool,
+	/** Отступ снизу **/
+	bottom: PropTypes.bool,
 }
 
 Button.defaultProps = {

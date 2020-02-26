@@ -47,6 +47,22 @@
 .Button {
   @include Button(#fff, #5181B8);
 
+  &--right {
+    margin-right: 8px;
+  }
+
+  &--left {
+    margin-left: 8px;
+  }
+
+  &--top {
+    margin-top: 8px;
+  }
+
+  &--bottom {
+    margin-bottom: 8px;
+  }
+
   &--wide {
     display: block;
     width: 100%;
@@ -119,6 +135,8 @@
 
       &:active {
         background-color: #e5ebf1;
+        padding-top: 7px;
+        padding-bottom: 6px;
       }
     }
   }

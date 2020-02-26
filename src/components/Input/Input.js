@@ -5,10 +5,11 @@ import css from './Input.scss'
 
 class Input extends Component {
 	render() {
-		const {className: baseClassName, ...restProps} = this.props
+		const {className: baseClassName, wide, ...restProps} = this.props
 
 		const className = createClassName({
 			[css["Input"]]: true,
+			[css["Input--wide"]]: wide,
 			[css['Input--mobile']]: isMobile(this.props),
 			[baseClassName]: baseClassName,
 		})
@@ -20,7 +21,9 @@ class Input extends Component {
 
 Input.propTypes = {
 	className: PropTypes.string,
-	mobile: PropTypes.bool
+	mobile: PropTypes.bool,
+	/** Широкий инпут **/
+	wide: PropTypes.bool,
 }
 
 module.exports = Input

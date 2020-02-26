@@ -13,6 +13,8 @@ import PageDialog from './components/PageDialog/PageDialog'
 import DropDown from './components/DropDown/DropDown'
 import Calendar from "./components/Calendar/Calendar"
 import DatePicker from "./components/DatePicker/DatePicker"
+import PageRoot from "./components/PageRoot/PageRoot"
+import FormLayout from "./components/FormLayout/FormLayout"
 
 module.exports = {
 	Button,
@@ -29,5 +31,7 @@ module.exports = {
 	PageDialog,
 	DropDown,
 	DatePicker,
-	Calendar
+	Calendar,
+	PageRoot,
+	FormLayout,
 }

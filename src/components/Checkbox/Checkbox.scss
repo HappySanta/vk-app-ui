@@ -56,12 +56,13 @@
   }
 
   &__text {
-    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
     font-size: 13px;
     line-height: 19px;
     cursor: pointer;
     color: #000000;
-    
+    display: flex;
+
     &:before {
       display: inline-block;
       width: 15px;

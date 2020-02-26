@@ -14,6 +14,10 @@
   box-shadow: none;
   box-sizing: border-box;
 
+  &--wide {
+    width: 100%;
+  }
+
   &:disabled {
     opacity: .45;
   }
@@ -22,6 +26,7 @@
     transition: color 0.2s ease;
     color: #828282;
   }
+
   &::-moz-placeholder {
     transition: color 0.2s ease;
     color: #828282;

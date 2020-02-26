@@ -93,6 +93,17 @@
 <Button mode="secondary" wide={true}>secondary</Button>
 ```
 
+## Расположение двух кнопок рядом
+```jsx
+<Button mode="primary" right={true}>Применить</Button>
+<Button mode="secondary">Отмена</Button>
+```
+
+```jsx
+<Button mode="primary" wide={true} bottom={true}>Применить</Button>
+<Button mode="secondary" wide={true}>Отмена</Button>
+```
+
 
 ## Устаревшие типы кнопок, используйте ```mode```
 Различные значения свойства ```type``` для кнопок

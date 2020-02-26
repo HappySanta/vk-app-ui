@@ -42,46 +42,22 @@
     opacity: .5;
     cursor: default;
   }
-
-  &--mobile {
-    font-family: -apple-system,BlinkMacSystemFont,Roboto,'Segoe UI','Segoe WP','Helvetica Neue','Lucida Grande',Verdana,Tahoma,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 16px;
-    padding: 9px 14px;
-    border-radius: 8px;
-
-    &.Button--default:active {
-      background-color: #4872a3;
-    }
-
-    &.secondary:active {
-      background-color: #dae2ea;
-    }
-
-    &.Button--transparent {
-      color: #306096;
-
-      &:active {
-        color: #4872A3;
-        background-color: transparent;
-      }
-    }
-
-    &.Button--loading {
-      padding: 9px 16px;
-    }
-
-  }
 }
 
 .Button {
-  @include Button(#fff, #5181b8);
+  @include Button(#fff, #5181B8);
 
-  &--default {
+  &--wide {
+    display: block;
+    width: 100%;
+  }
+
+  &--primary, &--default {
     &:not(:disabled):not(.Button--mobile):not(.Button--loading) {
       &:hover {
-        background-color: #5b88bd;
+        background-color: #5B88BD;
       }
+
       &:active {
         background-color: #4872a3;
       }
@@ -105,9 +81,10 @@
     }
   }
 
-  &--transparent {
+  &--tertiary, &--transparent {
     color: #2a5885;
     background-color: transparent;
+
     &:visited {
       color: #2a5885;
     }
@@ -117,8 +94,69 @@
       &:hover {
         background-color: #e5ebf1;
       }
+
       &:active {
         background-color: #e5ebf1;
+      }
+    }
+  }
+
+  &--outline {
+    color: #2a5885;
+    background-color: transparent;
+    border: 1px solid #2a5885;
+    box-sizing: border-box;
+    padding: 6px 16px 7px;
+
+    &:visited {
+      color: #2a5885;
+    }
+
+    &:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+      &:hover {
+        background-color: #e5ebf1;
+      }
+
+      &:active {
+        background-color: #e5ebf1;
+      }
+    }
+  }
+
+  &--commerce {
+    color: #FFFFFF;
+    background-color: #4bb34b;
+
+    &:visited {
+      color: #FFFFFF;
+    }
+
+    &:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+      &:hover {
+        background-color: #4bbf4b;
+      }
+
+      &:active {
+        background-color: #4aa94a;
+      }
+    }
+  }
+
+  &--destructive {
+    color: #FFFFFF;
+    background-color: #e64646;
+
+    &:visited {
+      color: #FFFFFF;
+    }
+
+    &:not(:disabled):not(.Button--mobile):not(.Button--loading) {
+      &:hover {
+        background-color: #f04848;
+      }
+
+      &:active {
+        background-color: #dd4646;
       }
     }
   }

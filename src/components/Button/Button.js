@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import WaitDots from "../WaitDots/WaitDots"
 import css from './Button.scss'
-import {createClassName, isMobile} from "../../tools"
+import {createClassName} from "../../tools"
 
 class Button extends Component {
 
@@ -32,7 +32,7 @@ class Button extends Component {
 	}
 
 	render() {
-		let {type, component, className: baseClassName, children, loading, fixedWidth, ...restProps} = this.props
+		let {type, mode, component, className: baseClassName, children, loading, fixedWidth, wide, ...restProps} = this.props
 		let Component = component ? component : this.props.href ? "a" : 'button'
 
 
@@ -40,8 +40,8 @@ class Button extends Component {
 			[css.Button]: true,
 			[baseClassName ? baseClassName : '']: true,
 			[css['Button--loading']]: loading,
-			[css["Button--mobile"]]: isMobile(this.props),
-			[type ? css['Button--' + type] : '']: !!type,
+			[css['Button--wide']]: wide,
+			[!!(mode || type) ? css['Button--' + (mode || type)] : '']: !!(mode || type),
 		})
 
 		if (loading) {
@@ -54,7 +54,10 @@ class Button extends Component {
 		}
 
 		const rp = {...restProps}
-		delete rp.mobile
+		// if (!this.props.href) {
+		// 	this.props.
+
+		// }
 		return (
 			<Component
 				ref={this.catchRef}
@@ -65,16 +68,25 @@ class Button extends Component {
 			</Component>
 		)
 	}
-};
+}
 
 Button.propTypes = {
 	/** Контент кнопки */
 	children: PropTypes.any,
 	/** Обработчик события клика, также доступны любые другие обработчики собтий как и на обычных кнопках  */
 	onClick: PropTypes.func,
-	/** Внешний вид кнопки */
+	/** Внешний вид кнопки @deprecated используете атрибут mode */
 	type: PropTypes.oneOf(['default', 'secondary', 'transparent', '']),
-	/** Мобильный вид кнопки или нет */
+	/** Внешний вид кнопки */
+	mode: PropTypes.oneOf([
+		"primary",
+		"secondary",
+		"tertiary",
+		"outline",
+		"commerce",
+		"destructive",
+	]),
+	/** Мобильный вид кнопки или нет @deprecated используйтк VKUI для мобильных кнопок */
 	mobile: PropTypes.bool,
 	/** Дополнительный css класс */
 	className: PropTypes.string,
@@ -88,11 +100,16 @@ Button.propTypes = {
 	fixedWidth: PropTypes.bool,
 	/** Компонен, button или a, по умолчанию будет выбран button если нет атрибута href, иначе a  */
 	component: PropTypes.string,
+	/** Для кнопок ссылок не забудьте указывать rel="noopener noreferrer" чтобы не раскрыть referrer строннему сайту */
+	rel: PropTypes.string,
+	/** Блочная нопка на всю ширину */
+	wide: PropTypes.bool,
 }
 
 Button.defaultProps = {
-	type: 'default',
-	fixedWidth: true
+	// mode: 'primary',
+	fixedWidth: true,
+	rel: "noopener noreferrer"
 }
 
 module.exports = Button

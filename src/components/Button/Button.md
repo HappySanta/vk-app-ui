@@ -1,12 +1,100 @@
-Кнопка бывает двух видов: для десктопа и для мобайла, это регулируется свойством ```mobile={true/false}```
-
-Чтобы не прописывать в каждой кнопке свойство mobile можно опреденить глобальную переменную ```window._hsMobileUI=true/false```
-
-
 ```jsx
 <Button>Desktop button</Button>
 ```
 
+```jsx
+<table cellPadding={5}>
+    <tbody>
+    <tr>
+        <td><code>mode</code></td>
+        <td>link</td>
+        <td>button</td>
+    </tr>
+    <tr>
+        <td>primary</td>
+        <td>
+            <Button mode="primary">primary</Button>
+        </td>
+        <td>
+            <Button mode="primary" 
+                    href="https://vk.com"
+                    rel="noopener noreferrer"
+                    target="_blank">primary url</Button>
+        </td>
+    </tr>
+<tr>
+        <td>secondary</td>
+        <td>
+            <Button mode="secondary">secondary</Button>
+        </td>
+        <td>
+            <Button mode="secondary" 
+                    href="https://vk.com"
+                    rel="noopener noreferrer"
+                    target="_blank">secondary url</Button>
+        </td>
+    </tr>
+<tr>
+        <td>tertiary</td>
+        <td>
+            <Button mode="tertiary">tertiary</Button>
+        </td>
+        <td>
+            <Button mode="tertiary" 
+                    href="https://vk.com"
+                    rel="noopener noreferrer"
+                    target="_blank">tertiary url</Button>
+        </td>
+    </tr>
+<tr>
+        <td>outline</td>
+        <td>
+            <Button mode="outline">outline</Button>
+        </td>
+        <td>
+            <Button mode="outline" 
+                    href="https://vk.com"
+                    rel="noopener noreferrer"
+                    target="_blank">outline url</Button>
+        </td>
+    </tr>
+<tr>
+        <td>commerce</td>
+        <td>
+            <Button mode="commerce">commerce</Button>
+        </td>
+        <td>
+            <Button mode="commerce" 
+                    href="https://vk.com"
+                    rel="noopener noreferrer"
+                    target="_blank">commerce url</Button>
+        </td>
+    </tr>
+<tr>
+        <td>destructive</td>
+        <td>
+            <Button mode="destructive">destructive</Button>
+        </td>
+        <td>
+            <Button mode="destructive" 
+                    href="https://vk.com"
+                    rel="noopener noreferrer"
+                    target="_blank">destructive url</Button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+```
+
+## Блочная кнопка на всю ширину
+```jsx
+<Button mode="primary" wide={true}>primary</Button>
+<br/>
+<Button mode="secondary" wide={true}>secondary</Button>
+```
+
+
+## Устаревшие типы кнопок, используйте ```mode```
 Различные значения свойства ```type``` для кнопок
 
 ```jsx

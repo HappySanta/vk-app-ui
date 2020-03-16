@@ -1,0 +1,31 @@
+.Line {
+  display: flex;
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--left {
+    justify-content: flex-start;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+
+  &--split {
+    justify-content: space-between;
+  }
+
+  &--v-center {
+    align-items: center;
+  }
+
+  &--v-top {
+    align-items: flex-start;
+  }
+
+  &--v-bottom {
+    align-items: flex-end;
+  }
+}

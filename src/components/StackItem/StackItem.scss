@@ -1,0 +1,45 @@
+.StackItem {
+
+  &:after {
+    content: "";
+    height: 1px;
+    display: block;
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: #e7e8ec;
+  }
+
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    padding: 22px 25px;
+    align-items: center;
+  }
+
+  &__before {
+    padding-right: 5px;
+    flex-shrink: 0;
+    width: 43px;
+    box-sizing: border-box;
+
+  }
+
+  &__header {
+    font-size: 15px;
+    font-weight: 500;
+    color: #222222;
+    line-height: 18px;
+    margin-bottom: 3px;
+    cursor: default;
+  }
+
+  &__content {
+    font-size: 13px;
+    line-height: 15px;
+  }
+}

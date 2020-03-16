@@ -1,0 +1,11 @@
+.Box {
+  padding: 25px;
+
+  &--large {
+    padding: 35px 50px;
+  }
+
+  + .Box {
+    padding-top: 0;
+  }
+}

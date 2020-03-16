@@ -77,7 +77,8 @@ class Button extends Component {
 				className={className}
 				{...rp}
 			>
-				{loading ? <WaitDots color={type === 'secondary' || type === 'transparent' ? 'blue' : ''}/> : children}
+				{loading ? <WaitDots
+					color={type === 'secondary' || type === 'transparent' || mode === 'secondary' || mode === 'tertiary' ? 'blue' : ''}/> : children}
 			</Component>
 		)
 	}
@@ -99,8 +100,6 @@ Button.propTypes = {
 		"commerce",
 		"destructive",
 	]),
-	/** Мобильный вид кнопки или нет @deprecated используйтк VKUI для мобильных кнопок */
-	mobile: PropTypes.bool,
 	/** Дополнительный css класс */
 	className: PropTypes.string,
 	/** URL ссылки */

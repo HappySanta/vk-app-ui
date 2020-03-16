@@ -1,18 +1,19 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {createClassName, isMobile} from "../../tools"
+import {createClassName} from "../../tools"
 import css from './Link.scss'
 
 export default class Link extends Component {
 	render() {
-		const {type, component, className: baseClassName, children, ...restProps} = this.props,
+		const {type, component, className: baseClassName, children, left, right, ...restProps} = this.props,
 			Component = component
 
 		const className = createClassName({
 			[css['Link']]: 1,
 			[type ? css[`Link--${type}`] : '']: !!type,
 			[baseClassName]: baseClassName,
-			[css['Link--mobile']]: isMobile(this.props)
+			[css["Link--left"]]: left,
+			[css["Link--right"]]: right,
 		})
 
 		const rp = {...restProps}

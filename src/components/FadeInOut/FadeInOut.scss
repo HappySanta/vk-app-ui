@@ -1,0 +1,22 @@
+.FadeInOut {
+  opacity: 0;
+
+  &--anim {
+    animation: flickerAnimation 3s;
+    animation-fill-mode: forwards;
+    @keyframes flickerAnimation {
+      0% {
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+}

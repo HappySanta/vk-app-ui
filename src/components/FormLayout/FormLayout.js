@@ -3,7 +3,16 @@ import PropTypes from 'prop-types'
 import css from './FormLayout.scss'
 import {createClassName} from "../../tools"
 
-class FormLayout extends Component {
+export function FormItem({children, top, bottom, ...restProps}) {
+	return <div {...restProps}>{children}</div>
+}
+
+export class FormLayout extends Component {
+
+	onSubmit = e => {
+		e.preventDefault()
+		this.props.onSubmit()
+	}
 
 	render() {
 		const {
@@ -12,14 +21,20 @@ class FormLayout extends Component {
 			className,
 			getRef,
 			onSubmit,
+			grow,
 			...restProps
 		} = this.props
 
 
 		return React.createElement(TagName, {
 				...restProps,
-				className: css['FormLayout'] + " " + (className || ""),
-				onSubmit,
+				className: createClassName({
+					[css['FormLayout']]: 1,
+					[css['FormLayout--grow']]: grow,
+					[className]: !!className,
+
+				}),
+				onSubmit: this.onSubmit,
 				ref: getRef
 			},
 			<Fragment>
@@ -62,11 +77,16 @@ FormLayout.propTypes = {
 		PropTypes.element,
 	]),
 
-	TagName: PropTypes.string
+	TagName: PropTypes.string,
+	onSubmit: PropTypes.func,
+	/**
+	 * flex-grow:1
+	 */
+	grow: PropTypes.func,
 }
 
 FormLayout.defaultProps = {
-	TagName: 'form'
+	TagName: 'form',
+	onSubmit: () => {
+	}
 }
-
-module.exports = FormLayout

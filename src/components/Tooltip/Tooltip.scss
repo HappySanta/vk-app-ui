@@ -1,0 +1,102 @@
+.TooltipDesk {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	padding: 5px 0;
+	pointer-events: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 100ms linear, visibility 100ms linear;
+
+	&__tag {
+		font-size: 10.5px;
+		line-height: 15px;
+		position: relative;
+		display: inline-block;
+		width: 17px;
+		height: 17px;
+		margin-left: 10px;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: 4px;
+		user-select: none;
+		color: #8E96A3;
+		border: 1px solid #BCC5D1;
+		border-radius: 50%;
+		font-weight: bold;
+		padding-left: 1px;
+		box-sizing: border-box;
+	}
+
+	&.TooltipDesk_hover {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: initial;
+	}
+
+	&__inner {
+		position: relative;
+		font-size: 12.5px;
+		line-height: 15px;
+		padding: 4px 8px;
+		color: #FFFFFF;
+		border-radius: 4px;
+		background-color: rgba(14, 14, 14, .7);
+	}
+
+	&__text {
+		min-height: 16px;
+	}
+
+	&__corner {
+		position: absolute;
+		bottom: -5px;
+		left: 10px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 5px 5px 0 5px;
+		border-color: rgba(14, 14, 14, .7) transparent transparent transparent;
+
+		&.TooltipDesk__corner_top {
+			top: -5px;
+			bottom: auto;
+			border-width: 0 5px 5px 5px;
+			border-color: transparent transparent rgba(14, 14, 14, .7) transparent;
+		}
+	}
+
+	&.TooltipDesk_hint {
+
+		.TooltipDesk {
+			&__inner {
+				font-size: 13px;
+				line-height: 17px;
+				padding: 13px 15px;
+				color: #000000;
+				border: 1px solid #C5D0DB;
+				background-color: #FFFFFF;
+				box-shadow: 0 1px 3px 0px rgba(0, 0, 0, .1);
+			}
+
+			&__corner {
+				bottom: -7px;
+				width: 12px;
+				height: 7px;
+				border: none;
+				background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h12v7H0z'/%3E%3C/defs%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cpath d='M6 6.293L11.793.5h140.08c1.55 0 2.186-.123 2.845-.475a3.135 3.135 0 0 0 1.307-1.307c.352-.659.475-1.296.475-2.846v-67.744c0-1.55-.123-2.187-.475-2.846a3.135 3.135 0 0 0-1.307-1.307c-.659-.352-1.296-.475-2.846-.475h-292.744c-1.55 0-2.187.123-2.846.475a3.135 3.135 0 0 0-1.307 1.307c-.352.659-.475 1.296-.475 2.846v67.744c0 1.55.123 2.187.475 2.846a3.135 3.135 0 0 0 1.307 1.307c.659.352 1.296.475 2.846.475H.208L6 6.293z' stroke='%23C5D0DB' fill='%23FFF' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center center;
+
+				&.TooltipDesk__corner_top {
+					top: -7px;
+					bottom: auto;
+					border: none;
+					background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h12v7H0z'/%3E%3C/defs%3E%3Cg transform='matrix(1 0 0 -1 0 7)' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cpath d='M6 6.293L11.793.5h140.08c1.55 0 2.186-.123 2.845-.475a3.135 3.135 0 0 0 1.307-1.307c.352-.659.475-1.296.475-2.846v-67.744c0-1.55-.123-2.187-.475-2.846a3.135 3.135 0 0 0-1.307-1.307c-.659-.352-1.296-.475-2.846-.475h-292.744c-1.55 0-2.187.123-2.846.475a3.135 3.135 0 0 0-1.307 1.307c-.352.659-.475 1.296-.475 2.846v67.744c0 1.55.123 2.187.475 2.846a3.135 3.135 0 0 0 1.307 1.307c.659.352 1.296.475 2.846.475H.208L6 6.293z' stroke='%23C5D0DB' fill='%23FFF' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+.Welcome {
+  padding: 16px;
+
+  &__header {
+    font-family: TTCommons, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.08;
+    text-align: center;
+    color: #222222;
+    margin-bottom: 15px;
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 1.36;
+    text-align: center;
+    color: #828282;
+    max-width: 500px;
+    margin: 0 auto 24px auto;
+  }
+
+  &__icon {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  &__footer {
+    text-align: center;
+  }
+}

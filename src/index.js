@@ -14,7 +14,28 @@ import DropDown from './components/DropDown/DropDown'
 import Calendar from "./components/Calendar/Calendar"
 import DatePicker from "./components/DatePicker/DatePicker"
 import PageRoot from "./components/PageRoot/PageRoot"
-import FormLayout from "./components/FormLayout/FormLayout"
+import {FormItem, FormLayout} from "./components/FormLayout/FormLayout"
+import PageView from "./components/PageView/PageView"
+import Welcome from "./components/Welcome/Welcome"
+import Box from "./components/Box/Box"
+import Gray from "./components/Gray/Gray"
+import Red from "./components/Red/Red"
+import Line from "./components/Line/Line"
+import Tooltip from "./components/Tooltip/Tooltip"
+import TooltipTag from "./components/Tooltip/TooltipTag"
+import StackItem from "./components/StackItem/StackItem"
+import CloseIcon from "./components/Icons/CloseIcon"
+import CheckIcon from "./components/Icons/CheckIcon"
+import FadeInOut from "./components/FadeInOut/FadeInOut"
+import Switch from "./components/Switch/Switch"
+import TabList from "./components/Tabs/TabList"
+import TabItem from "./components/Tabs/TabItem"
+import {numberFormat, priceFormat, resizeForNode} from "./tools"
+import {Header} from "./components/Header/Header"
+import {P} from "./components/P/P"
+import {PromoCard} from "./components/PromoCard/PromoCard"
+import {Progress} from "./components/Progress/Progress"
+
 
 module.exports = {
 	Button,
@@ -34,4 +55,27 @@ module.exports = {
 	Calendar,
 	PageRoot,
 	FormLayout,
+	PageView,
+	Welcome,
+	TabItem,
+	TabList,
+	Switch,
+	Box,
+	Gray,
+	Red,
+	Line,
+	FadeInOut,
+	StackItem,
+	CheckIcon,
+	CloseIcon,
+	priceFormat,
+	numberFormat,
+	Header,
+	P,
+	Progress,
+	PromoCard,
+	resizeForNode,
+	FormItem,
+	Tooltip,
+	TooltipTag,
 }

@@ -1,0 +1,54 @@
+.TabItem {
+  font-size: 13px;
+  line-height: 15px;
+  position: relative;
+  display: inline-block;
+  padding: 16px 6px;
+  cursor: pointer;
+  user-select: none;
+  color: #656565;
+  transition-property: color;
+  transition-timing-function: ease;
+  transition-duration: 100ms;
+  margin-right: 8px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    color: #000000;
+
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      height: 2px;
+      content: '';
+      background-color: #cad2db;
+    }
+  }
+
+  &--selected {
+    color: #000000;
+
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      height: 2px;
+      content: '';
+      background-color: #5888B0;
+    }
+
+    &:hover {
+      &:before {
+        background-color: #5888B0;
+      }
+    }
+  }
+}

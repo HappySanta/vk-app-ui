@@ -1,0 +1,77 @@
+.Mailings_desktop .TooltipDesk {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding: 5px 0;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 100ms linear, visibility 100ms linear;
+}
+
+.Mailings_desktop .TooltipDesk.TooltipDesk_hover {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+}
+
+.Mailings_desktop .TooltipDesk__inner {
+  position: relative;
+  font-size: 12.5px;
+  line-height: 15px;
+  padding: 4px 8px;
+  color: #FFFFFF;
+  border-radius: 4px;
+  background-color: rgba(14, 14, 14, 0.7);
+}
+
+.Mailings_desktop .TooltipDesk__text {
+  min-height: 16px;
+}
+
+.Mailings_desktop .TooltipDesk__corner {
+  position: absolute;
+  bottom: -5px;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: rgba(14, 14, 14, 0.7) transparent transparent transparent;
+}
+
+.Mailings_desktop .TooltipDesk__corner.TooltipDesk__corner_top {
+  top: -5px;
+  bottom: auto;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent rgba(14, 14, 14, 0.7) transparent;
+}
+
+.Mailings_desktop .TooltipDesk.TooltipDesk_hint .TooltipDesk__inner {
+  font-size: 13px;
+  line-height: 17px;
+  padding: 13px 15px;
+  color: #000000;
+  border: 1px solid #C5D0DB;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.Mailings_desktop .TooltipDesk.TooltipDesk_hint .TooltipDesk__corner {
+  bottom: -7px;
+  width: 12px;
+  height: 7px;
+  border: none;
+  background-image: url("./img/corner_bottom.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.Mailings_desktop .TooltipDesk.TooltipDesk_hint .TooltipDesk__corner.TooltipDesk__corner_top {
+  top: -7px;
+  bottom: auto;
+  border: none;
+  background-image: url("./img/corner_top.svg");
+}

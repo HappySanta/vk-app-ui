@@ -1,0 +1,46 @@
+.DropList {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  &--block {
+    display: block;
+  }
+
+  &__window {
+    position: absolute;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    padding: 8px 0;
+
+    &--left {
+      left: -14px;
+    }
+
+    &--right {
+      right: -14px;
+    }
+  }
+
+  &__item {
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    color: #000000;
+    padding: 8px 14px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f0f2f5;
+    }
+
+    white-space: nowrap;
+
+    &--no-ws {
+      white-space: normal;
+    }
+  }
+}

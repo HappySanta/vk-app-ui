@@ -29,19 +29,17 @@ export default class PageView extends Component {
 
 		if (this.props.width || this.props.height) {
 			const w = this.props.width || window.innerWidth
-			const h = this.props.height || window.innerHeight
+			let h = this.props.height || window.innerHeight
+			if (this.props.height === -1) {
+				const style = window.getComputedStyle(document.body)
+				h = document.body.scrollHeight + parseInt(style.paddingTop, 10) + parseInt(style.paddingBottom, 10)
+			}
 			resize(w, h)
 		}
 
 		if (!resizeEventListener) {
 			resizeEventListener = this.onResizeCall
 			window.addEventListener(HS_RESIZE_REQUEST_EVENT, this.onResizeCall)
-		}
-
-		if (this.props.adaptAfterMount) {
-			const w = this.props.width || window.innerWidth
-			const h = this.props.height || document.body.clientHeight || window.innerHeight
-			resize(w, h)
 		}
 	}
 
@@ -92,9 +90,7 @@ PageView.propTypes = {
 	id: PropTypes.string,
 	/** Ширина в пикселях, обязательна константа если задано **/
 	width: PropTypes.number,
-	/** Высота в пикселях, обязательна константа если задано **/
+	/** Высота в пикселях, обязательна константа если задано -1 -- авто высота **/
 	height: PropTypes.number,
 	center: PropTypes.bool,
-	/** Обновить высоту под контент после монтирования + 50ms */
-	adaptAfterMount: PropTypes.bool,
 }

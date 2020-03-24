@@ -19,6 +19,7 @@ import PageView from "./components/PageView/PageView"
 import Welcome from "./components/Welcome/Welcome"
 import Box from "./components/Box/Box"
 import Gray from "./components/Gray/Gray"
+import DropList from "./components/DropList/DropList"
 import Red from "./components/Red/Red"
 import Line from "./components/Line/Line"
 import Tooltip from "./components/Tooltip/Tooltip"
@@ -30,7 +31,15 @@ import FadeInOut from "./components/FadeInOut/FadeInOut"
 import Switch from "./components/Switch/Switch"
 import TabList from "./components/Tabs/TabList"
 import TabItem from "./components/Tabs/TabItem"
-import {numberFormat, priceFormat, resizeForNode} from "./tools"
+import {
+	dateFormat,
+	getDateFromValue,
+	leadingZero,
+	NARROW_NO_BREAK_SPACE,
+	numberFormat,
+	priceFormat,
+	resizeForNode, RUS_MONTH_NAMES
+} from "./tools"
 import {Header} from "./components/Header/Header"
 import {P} from "./components/P/P"
 import {PromoCard} from "./components/PromoCard/PromoCard"
@@ -78,4 +87,10 @@ module.exports = {
 	FormItem,
 	Tooltip,
 	TooltipTag,
+	NARROW_NO_BREAK_SPACE,
+	RUS_MONTH_NAMES,
+	dateFormat,
+	getDateFromValue,
+	leadingZero,
+	DropList,
 }

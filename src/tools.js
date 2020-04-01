@@ -70,6 +70,35 @@ export const HS_RESIZE_REQUEST_EVENT = 'hs_resize_request_event'
 
 
 export const RUS_MONTH_NAMES = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
+export const RUS_MONTH_NAMES_INF = [
+	'январь',
+	'февраль',
+	'март',
+	'апрель',
+	'май',
+	'июнь',
+	'июль',
+	'август',
+	'сентябрь',
+	'октябрь',
+	'ноябрь',
+	'декабрь',
+]
+
+export const RUS_MONTH_NAMES_GEN = [
+	'января',
+	'февраля',
+	'марта',
+	'апреля',
+	'мая',
+	'июня',
+	'июля',
+	'августа',
+	'сентября',
+	'октября',
+	'ноября',
+	'декабря',
+]
 
 
 /**
@@ -77,15 +106,15 @@ export const RUS_MONTH_NAMES = ['янв', 'фев', 'мар', 'апр', 'май'
  * @param {string} format
  * @param {null|number|Date} date timestamp или Date или null
  * @param {string[]} monthArray названия месяцов
+ * @param {string} today название для "сегодня"
  * @return {string}
  */
-export function dateFormat(format, date = null, monthArray = RUS_MONTH_NAMES) {
+export function dateFormat(format, date = null, monthArray = RUS_MONTH_NAMES, today = 'сегодня') {
 	const time = getDateFromValue(date)
 	let now = new Date()
 	const keys = {
 		'y': time.getFullYear() === now.getFullYear() ? '' : time.getFullYear(),
 		'j': monthArray[time.getMonth()],
-
 		'Y': time.getFullYear(),
 		'm': time.getMonth(),
 		'M': leadingZero(time.getMonth()),
@@ -100,7 +129,7 @@ export function dateFormat(format, date = null, monthArray = RUS_MONTH_NAMES) {
 	}
 
 	const data = Object.keys(keys)
-	let str = format
+	let str = format.replace('J', isSameDay(now, time) ? today : 'd\u00A0j')
 	data.forEach(key => {
 		str = str.replace(key, keys[key])
 	})
@@ -134,4 +163,10 @@ export function leadingZero(value) {
 	} else {
 		return value.toString()
 	}
+}
+
+export function isSameDay(d1, d2) {
+	return d1.getFullYear() === d2.getFullYear() &&
+		d1.getMonth() === d2.getMonth() &&
+		d1.getDate() === d2.getDate()
 }

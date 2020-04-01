@@ -33,12 +33,12 @@ import TabList from "./components/Tabs/TabList"
 import TabItem from "./components/Tabs/TabItem"
 import {
 	dateFormat,
-	getDateFromValue,
+	getDateFromValue, isSameDay,
 	leadingZero,
 	NARROW_NO_BREAK_SPACE,
 	numberFormat,
 	priceFormat,
-	resizeForNode, RUS_MONTH_NAMES
+	resizeForNode, RUS_MONTH_NAMES, RUS_MONTH_NAMES_GEN, RUS_MONTH_NAMES_INF
 } from "./tools"
 import {Header} from "./components/Header/Header"
 import {P} from "./components/P/P"
@@ -89,6 +89,9 @@ module.exports = {
 	TooltipTag,
 	NARROW_NO_BREAK_SPACE,
 	RUS_MONTH_NAMES,
+	RUS_MONTH_NAMES_INF,
+	RUS_MONTH_NAMES_GEN,
+	isSameDay,
 	dateFormat,
 	getDateFromValue,
 	leadingZero,

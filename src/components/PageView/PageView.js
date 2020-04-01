@@ -32,7 +32,8 @@ export default class PageView extends Component {
 			let h = this.props.height || window.innerHeight
 			if (this.props.height === -1) {
 				const style = window.getComputedStyle(document.body)
-				h = document.body.scrollHeight + parseInt(style.paddingTop, 10) + parseInt(style.paddingBottom, 10)
+				//Тут +2 пиксела потому что каким-то чудом на винде появляется скролл
+				h = document.body.scrollHeight + parseInt(style.paddingTop, 10) + parseInt(style.paddingBottom, 10) + 2
 			}
 			resize(w, h)
 		}
@@ -48,7 +49,8 @@ export default class PageView extends Component {
 			resize(e.width, e.height)
 		} else if (document.body.scrollHeight > document.body.clientHeight) {
 			const style = window.getComputedStyle(document.body)
-			const h = document.body.scrollHeight + parseInt(style.paddingTop, 10) + parseInt(style.paddingBottom, 10)
+			//Тут +2 пиксела потому что каким-то чудом на винде появляется скролл
+			const h = document.body.scrollHeight + parseInt(style.paddingTop, 10) + parseInt(style.paddingBottom, 10) + 2
 			const w = document.body.offsetWidth
 			resize(w, h)
 		}

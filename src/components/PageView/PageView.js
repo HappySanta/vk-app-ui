@@ -23,6 +23,12 @@ export default class PageView extends Component {
 		this.heightBeforeMount = null
 	}
 
+	getFrameHeight() {
+		const style = window.getComputedStyle(document.body)
+		const h = document.body.scrollHeight + parseInt(style.paddingTop, 10) + parseInt(style.paddingBottom, 10)
+		return h
+	}
+
 	componentDidMount() {
 		this.widthBeforeMount = window.innerWidth
 		this.heightBeforeMount = window.innerHeight
@@ -31,9 +37,7 @@ export default class PageView extends Component {
 			const w = this.props.width || window.innerWidth
 			let h = this.props.height || window.innerHeight
 			if (this.props.height === -1) {
-				const style = window.getComputedStyle(document.body)
-				//Тут +2 пиксела потому что каким-то чудом на винде появляется скролл
-				h = document.body.scrollHeight + parseInt(style.paddingTop, 10) + parseInt(style.paddingBottom, 10) + 2
+				h = this.getFrameHeight()
 			}
 			resize(w, h)
 		}
@@ -48,10 +52,8 @@ export default class PageView extends Component {
 		if (e.width && e.height) {
 			resize(e.width, e.height)
 		} else if (document.body.scrollHeight > document.body.clientHeight) {
-			const style = window.getComputedStyle(document.body)
-			//Тут +2 пиксела потому что каким-то чудом на винде появляется скролл
-			const h = document.body.scrollHeight + parseInt(style.paddingTop, 10) + parseInt(style.paddingBottom, 10) + 2
-			const w = document.body.offsetWidth
+			const h = this.getFrameHeight()
+			const w = window.innerWidth
 			resize(w, h)
 		}
 	}

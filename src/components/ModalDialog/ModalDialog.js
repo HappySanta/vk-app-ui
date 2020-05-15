@@ -95,12 +95,12 @@ export default class ModalDialog extends Component {
 					{this.props.footerLeft || null}
 				</div>
 				<div>
-					<Button onClick={this.onCancelBtnClick}
-							right={true}
-							mode="secondary">{this.props.cancelText}</Button>
-					<Button loading={this.props.loading}
-							mode="primary"
-							onClick={this.onConfirmClick}>{this.props.confirmText}</Button>
+					{!!this.props.cancelText && <Button onClick={this.onCancelBtnClick}
+														right={true}
+														mode="secondary">{this.props.cancelText}</Button>}
+					{!!this.props.confirmText && <Button loading={this.props.loading}
+														 mode="primary"
+														 onClick={this.onConfirmClick}>{this.props.confirmText}</Button>}
 				</div>
 			</div>
 		]

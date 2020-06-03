@@ -257,9 +257,12 @@ export default class Calendar extends Component {
 	}
 
 	render() {
-		const {showYearAndMonthPicker} = this.props
-		return <div
-			className={createClassName({[css["Calendar"]]: 1, [css["Calendar__with-side"]]: showYearAndMonthPicker})}>
+		const {showYearAndMonthPicker, className} = this.props
+		return <div className={createClassName({
+			[css["Calendar"]]: 1,
+			[css["Calendar__with-side"]]: showYearAndMonthPicker,
+			[className]: !!className,
+		})}>
 			<div onClick={this.onHeaderClick} className={css["Calendar__header"]}>
 				<button onClick={this.onPrevMonthClick} className={css["Calendar__left"]}/>
 				<button onClick={this.onNextMonthClick} className={css["Calendar__right"]}/>
@@ -272,6 +275,7 @@ export default class Calendar extends Component {
 }
 
 Calendar.propTypes = {
+	className: PropTypes.string,
 	monthNames: PropTypes.object,
 	weekNames: PropTypes.object,
 	currentDay: PropTypes.instanceOf(moment),
@@ -287,6 +291,7 @@ Calendar.propTypes = {
 }
 
 Calendar.defaultProps = {
+	className: "",
 	currentDay: moment(),
 	weekNames: weekNamesShortRU,
 	monthNames: monthNamesFullRU,

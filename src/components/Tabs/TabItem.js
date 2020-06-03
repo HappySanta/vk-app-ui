@@ -12,6 +12,7 @@ export default class TabItem extends Component {
 		return <div className={createClassName({
 			[css["TabItem"]]: 1,
 			[css["TabItem--selected"]]: this.props.selected,
+			[this.props.className]: !!this.props.className,
 		})} {...rp}>
 			{this.props.children}
 		</div>
@@ -19,5 +20,6 @@ export default class TabItem extends Component {
 }
 
 TabItem.propTypes = {
-	selected: PropTypes.bool
+	selected: PropTypes.bool,
+	className: PropTypes.string,
 }

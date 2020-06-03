@@ -84,7 +84,7 @@ export default class PageView extends Component {
 			if (height) {
 				style.height = height + 'px'
 			}
-			return <div style={style}>{this.props.children}</div>
+			return <div className={this.props.className} style={style}>{this.props.children}</div>
 		}
 		return this.props.children || null
 	}
@@ -92,6 +92,7 @@ export default class PageView extends Component {
 
 PageView.propTypes = {
 	id: PropTypes.string,
+	className: PropTypes.string,
 	/** Ширина в пикселях, обязательна константа если задано **/
 	width: PropTypes.number,
 	/** Высота в пикселях, обязательна константа если задано -1 -- авто высота **/

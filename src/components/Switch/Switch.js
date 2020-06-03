@@ -10,6 +10,7 @@ export default class Switch extends Component {
 			[css["Switch--left"]]: this.props.left,
 			[css["Switch--right"]]: this.props.right,
 			[css["Switch--disabled"]]: this.props.disabled,
+			[this.props.className]: !!this.props.className,
 		})}>
 			<input type="checkbox"
 				   disabled={this.props.disabled}
@@ -26,6 +27,7 @@ Switch.propTypes = {
 	left: PropTypes.bool,
 	right: PropTypes.bool,
 	disabled: PropTypes.bool,
+	className: PropTypes.string,
 }
 
 Switch.defaultProps = {

@@ -5,19 +5,22 @@ import {createClassName} from "../../tools"
 
 export default class Notify extends Component {
 	render() {
-		const {type} = this.props
+		const {type, className: bClassName} = this.props
 		const className = createClassName({
-			[css["Notify"]]:true,
-			[css["Notify--"+type]]: 1
+			[css["Notify"]]: true,
+			[css["Notify--" + type]]: 1,
+			[bClassName]: !!bClassName,
 		})
-		return <div className={className + " " + (this.props.className||"")}>{this.props.children}</div>
+		return <div className={className + " " + (this.props.className || "")}>{this.props.children}</div>
 	}
 }
 
 Notify.propTypes = {
-	type: PropTypes.oneOf(["success", "info", "error"])
+	type: PropTypes.oneOf(["success", "info", "error"]),
+	className: PropTypes.string,
 }
 
 Notify.defaultProps = {
+	className: "",
 	type: "info"
 }

@@ -1,6 +1,8 @@
 import React, {Component, Fragment} from "react"
 import css from "./Tooltip.scss"
 import {createClassName} from "../../tools"
+import PropTypes from "prop-types"
+import TimeView from "../TimeView/TimeView"
 
 class Tooltip extends Component {
 
@@ -81,7 +83,8 @@ class Tooltip extends Component {
 		const className = createClassName({
 			[css['TooltipDesk']]: true,
 			[css['TooltipDesk_hover']]: tooltipIsShown,
-			[css['TooltipDesk_hint']]: type === 'hint'
+			[css['TooltipDesk_hint']]: type === 'hint',
+			[this.props.className]: !!this.props.className
 		})
 
 		return (
@@ -104,3 +107,7 @@ class Tooltip extends Component {
 
 
 module.exports = Tooltip
+
+Tooltip.propTypes = {
+	className: PropTypes.string,
+}

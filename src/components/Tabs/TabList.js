@@ -7,7 +7,7 @@ export default class TabList extends Component {
 
 	render() {
 		return (
-			<div className={css["TabList"]} ref={this.Tabs}>
+			<div className={css["TabList"] + (" ") + (this.props.className || "")}>
 				<div className={css["TabList__inner"]}>
 					{/*{tabs.map((item, index) => this.renderTab(item, index))}*/}
 					{/*<div className="TabsDesktop__slider" style={sliderStyle}/>*/}
@@ -21,4 +21,5 @@ export default class TabList extends Component {
 
 TabList.propTypes = {
 	after: PropTypes.element,
+	className: PropTypes.className,
 }

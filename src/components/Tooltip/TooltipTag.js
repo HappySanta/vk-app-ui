@@ -2,6 +2,7 @@ import React, {Component, Fragment} from "react"
 import css from "./Tooltip.scss"
 import Tooltip from './Tooltip'
 import {createClassName} from "../../tools"
+import PropTypes from "prop-types"
 
 class TooltipTag extends Component {
 
@@ -40,7 +41,7 @@ class TooltipTag extends Component {
 				 onMouseLeave={this.leave}
 				 onClick={this.click}
 				 ref={this.catchRef}
-				 className={css['TooltipDesk__tag']}>?
+				 className={css['TooltipDesk__tag'] + " " + (this.props.className || "")}>?
 			</div>
 			{this.state.open && <Tooltip tooltipForElNode={this.node}
 										 type="hint"
@@ -51,3 +52,7 @@ class TooltipTag extends Component {
 }
 
 module.exports = TooltipTag
+
+Tooltip.propTypes = {
+	className: PropTypes.string,
+}

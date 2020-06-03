@@ -89,6 +89,7 @@ export default class DatePicker extends Component {
 
 
 DatePicker.propTypes = {
+	className: PropTypes.string,
 	isActiveDay: PropTypes.func,
 	isActiveMonth: PropTypes.func,
 	inputClassName: PropTypes.string,
@@ -121,6 +122,7 @@ DatePicker.propTypes = {
 }
 
 DatePicker.defaultProps = {
+	className: "",
 	weekNames: weekNamesShortRU,
 	monthNames: monthNamesFullRU,
 	disabled: false,

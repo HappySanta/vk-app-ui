@@ -59,17 +59,21 @@ export default class PageDialog extends Component {
 		const hasHeader = !!this.props.header
 		return <div ref={this.catchRootNode}
 					onClick={this.onBackgroundClick}
-					className={css['PageDialog']}>
+					className={css['PageDialog'] + " " + this.props.className}>
 			<div ref={this.catchBgNode}
 				 className={css['PageDialog__box']}>
 				<div onClick={this.onWindowClick}
 					 ref={this.catchWindowNode}
 					 className={css['PageDialog__window']}>
-					<button onClick={this.onCrossClick} aria-label={this.props.closeLabel} className={css['PageDialog__close']}/>
+					<button onClick={this.onCrossClick} aria-label={this.props.closeLabel}
+							className={css['PageDialog__close']}/>
 					{hasHeader ? <div className={css['PageDialog__header']}>
 						{this.props.header}
 					</div> : null}
-					<div className={createClassName({[css['PageDialog__body']]:1, [css['PageDialog__body--header']]:hasHeader})}>
+					<div className={createClassName({
+						[css['PageDialog__body']]: 1,
+						[css['PageDialog__body--header']]: hasHeader
+					})}>
 						{this.props.children}
 					</div>
 				</div>
@@ -80,6 +84,7 @@ export default class PageDialog extends Component {
 
 PageDialog.propTypes = {
 	closeLabel: PropTypes.string,
+	className: PropTypes.string,
 	onClose: PropTypes.func,
 	catchOverflow: PropTypes.bool,
 	header: PropTypes.oneOfType([
@@ -89,5 +94,6 @@ PageDialog.propTypes = {
 
 PageDialog.defaultProps = {
 	closeLabel: "Закрыть диалог",
-	catchOverflow:true,
+	className: "",
+	catchOverflow: true,
 }

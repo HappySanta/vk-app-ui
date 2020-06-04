@@ -21,5 +21,5 @@ export default class TabList extends Component {
 
 TabList.propTypes = {
 	after: PropTypes.element,
-	className: PropTypes.className,
+	className: PropTypes.string,
 }

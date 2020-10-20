@@ -52,22 +52,28 @@ class DropList extends Component {
 	render() {
 		const {block, className, items, pin, windowStyle} = this.props
 		const {open} = this.state
-		return <div onClick={this.onClick}
-					onMouseEnter={this.onMouseEnter}
-					onMouseLeave={this.onMouseLeave}
-					className={createClassName({
-						[css["DropList"]]: 1,
-						[css["DropList--block"]]: block,
-						[className]: !!className,
+
+		return (
+			<div
+				onClick={this.onClick}
+				onMouseEnter={this.onMouseEnter}
+				onMouseLeave={this.onMouseLeave}
+				className={createClassName({
+					[css["DropList"]]: 1,
+					[css["DropList--block"]]: block,
+					[className]: !!className,
+				})}>
+				<div className={css['DropList__in']}>
+					{this.props.children}
+					{open && <div onClick={this.forceHide} style={windowStyle} className={createClassName({
+						[css['DropList__window']]: 1,
+						[css['DropList__window--' + pin]]: 1,
 					})}>
-			{this.props.children}
-			{open && <div onClick={this.forceHide} style={windowStyle} className={createClassName({
-				[css['DropList__window']]: 1,
-				[css['DropList__window--' + pin]]: 1,
-			})}>
-				{items.map((item, index) => this.item(item, index))}
-			</div>}
-		</div>
+						{items.map((item, index) => this.item(item, index))}
+					</div>}
+				</div>
+			</div>
+		);
 	}
 }
 

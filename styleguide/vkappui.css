@@ -557,13 +557,15 @@
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h11v6H0z'/%3E%3C/defs%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h16v16H0z'/%3E%3Cg transform='translate(2.5 5)'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cpath stroke='%23B0B4B8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' mask='url(%23b)' d='M.75.75l4.75 4.5 4.75-4.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
 
 .DropList__hs0tag {
-  position: relative;
   display: inline-block;
   cursor: pointer; }
   .DropList--block__hs0tag {
     display: block; }
+  .DropList__in__hs0tag {
+    position: relative; }
   .DropList__window__hs0tag {
     position: absolute;
+    z-index: 1;
     border-radius: 8px;
     box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
     background-color: #ffffff;
